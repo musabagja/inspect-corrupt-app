@@ -45,7 +45,8 @@ const resolvers = {
       try {
         const { payload } = args
         const newReports = await makeReports(payload)
-        return newReports
+        console.log(newReports.ops[0])
+        return newReports.ops[0]
       } catch (error) {
         return error
       }
