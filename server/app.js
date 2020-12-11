@@ -17,3 +17,5 @@ server.listen().then(() => {
     Listening on port 4000
   `);
 });
+
+module.exports = server
