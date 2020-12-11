@@ -1,10 +1,14 @@
 const { ApolloServer, gql, makeExecutableSchema } = require('apollo-server');
+const reportSchema = require('./schemas/report')
 
-const typeDefs = gql``;
+const typeDefs = gql`
+  type Query
+  type Mutation
+`;
 
 const schema = makeExecutableSchema({
-  typeDefs: [typeDefs],
-  resolvers: []
+  typeDefs: [typeDefs, reportSchema.typeDefs],
+  resolvers: [reportSchema.resolvers]
 })
 
 const server = new ApolloServer({
