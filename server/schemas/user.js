@@ -1,5 +1,4 @@
 const { gql } = require('apollo-server');
-const redis = require('../config/redis');
 const { register, getUser, getUserByEmail } = require('../models/user');
 const { compare } = require('../helpers/encrypt');
 const { sign: jwtSign } = require('../helpers/jwt');
@@ -81,7 +80,7 @@ const resolvers = {
           }
         }
       } catch(err) {
-        return err
+        return err;
       }
     }
   }

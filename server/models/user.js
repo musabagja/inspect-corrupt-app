@@ -12,8 +12,6 @@ class User {
   }
 
   static async register(payload) {
-    console.log(hash(payload.password, 'inni hash'))
-    console.log({...payload, password: hash(payload.password) })
     return await usersCollection.insertOne({...payload, password: hash(payload.password) });
   }
 }
