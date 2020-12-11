@@ -81,12 +81,25 @@ function npwpValidator(npwp) {
 
     const npwpIsValid = kppStatus === serialNumberStatus ? true : false
 
-    return npwpIsValid
-
+    return {
+      npwp: npwpString,
+      serialNumberStatus: serialNumberStatus,
+      kpp: kpp,
+      kppStatus: kppStatus,
+      npwpIsValid: npwpIsValid,
+      msg: npwpIsValid === true ? 'Your NPWP is valid!' : 'Your NPWP is invalid!'
+    }
   }
   else {
-    return false
+    return {
+      msg: "NPWP should have 15 digits of numbers!",
+      npwpIsValid: false
+    }
   }
 }
+
+const npwp = 958794455442000
+
+console.log(npwpValidator(npwp))
 
 module.exports = npwpValidator
