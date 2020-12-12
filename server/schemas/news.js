@@ -1,5 +1,6 @@
 const { gql } = require('apollo-server')
 const axios = require('axios')
+// const NodeMailer = require('../helpers/nodeMailer')
 
 const typeDefs = gql`
     type Articles {
@@ -50,6 +51,10 @@ const resolvers = {
                     url: `https://newsapi.org/v2/everything?q=${q}&apiKey=${apiKey}`,
                     method: "GET",
                 })
+                // let receiver = "yogi.ferdian3915@gmail.com"
+                // let emailSubject = "tes email nodemailer"
+                // let htmlMessage = "<h1>tes email from nodemailer</h1>"
+                // NodeMailer(receiver, emailSubject, htmlMessage)
                 return response.data.articles
             } catch (error) {
                 console.log(error)
