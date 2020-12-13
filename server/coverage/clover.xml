@@ -1,89 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1607829381482" clover="3.2.0">
-  <project timestamp="1607829381482" name="All files">
-    <metrics statements="91" coveredstatements="76" conditionals="14" coveredconditionals="11" methods="15" coveredmethods="11" elements="120" coveredelements="98" complexity="0" loc="91" ncloc="91" packages="5" files="7" classes="7"/>
+<coverage generated="1607847228354" clover="3.2.0">
+  <project timestamp="1607847228354" name="All files">
+    <metrics statements="122" coveredstatements="111" conditionals="14" coveredconditionals="13" methods="23" coveredmethods="21" elements="159" coveredelements="145" complexity="0" loc="122" ncloc="122" packages="5" files="9" classes="9"/>
     <package name="server">
-      <metrics statements="16" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="17" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="app.js" path="D:\h8\P3\final-project\inspect-corrupt-app\server\app.js">
-        <metrics statements="16" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="5" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="10" count="2" type="stmt"/>
-        <line num="15" count="2" type="stmt"/>
-        <line num="20" count="2" type="stmt"/>
-        <line num="24" count="2" type="stmt"/>
-        <line num="25" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="31" count="2" type="stmt"/>
-        <line num="40" count="2" type="stmt"/>
+        <metrics statements="17" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="5" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="16" count="3" type="stmt"/>
+        <line num="21" count="3" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="32" count="3" type="stmt"/>
+        <line num="41" count="3" type="stmt"/>
       </file>
     </package>
     <package name="server.config">
-      <metrics statements="16" coveredstatements="9" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="0"/>
+      <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="0" coveredmethods="0"/>
       <file name="database.js" path="D:\h8\P3\final-project\inspect-corrupt-app\server\config\database.js">
-        <metrics statements="16" coveredstatements="9" conditionals="6" coveredconditionals="4" methods="2" coveredmethods="0"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="6" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="7" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="23" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="27" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="34" count="2" type="stmt"/>
+        <metrics statements="9" coveredstatements="9" conditionals="4" coveredconditionals="4" methods="0" coveredmethods="0"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="6" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="17" count="3" type="stmt"/>
       </file>
     </package>
     <package name="server.helpers">
       <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="3"/>
       <file name="encrypt.js" path="D:\h8\P3\final-project\inspect-corrupt-app\server\helpers\encrypt.js">
         <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
         <line num="9" count="3" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
       </file>
       <file name="jwt.js" path="D:\h8\P3\final-project\inspect-corrupt-app\server\helpers\jwt.js">
         <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="1" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
         <line num="5" count="2" type="stmt"/>
         <line num="9" count="0" type="stmt"/>
-        <line num="13" count="2" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
       </file>
     </package>
     <package name="server.models">
-      <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
+      <metrics statements="15" coveredstatements="15" conditionals="4" coveredconditionals="4" methods="8" coveredmethods="8"/>
+      <file name="report.js" path="D:\h8\P3\final-project\inspect-corrupt-app\server\models\report.js">
+        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="5" coveredmethods="5"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="10" count="4" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
+        <line num="18" count="4" type="stmt"/>
+        <line num="37" count="4" type="stmt"/>
+        <line num="41" count="3" type="stmt"/>
+      </file>
       <file name="user.js" path="D:\h8\P3\final-project\inspect-corrupt-app\server\models\user.js">
         <metrics statements="7" coveredstatements="7" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="cond" truecount="2" falsecount="0"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="11" count="4" type="stmt"/>
         <line num="15" count="3" type="stmt"/>
-        <line num="19" count="2" type="stmt"/>
+        <line num="19" count="3" type="stmt"/>
       </file>
     </package>
     <package name="server.schemas">
-      <metrics statements="44" coveredstatements="39" conditionals="6" coveredconditionals="5" methods="5" coveredmethods="5"/>
+      <metrics statements="73" coveredstatements="65" conditionals="6" coveredconditionals="5" methods="10" coveredmethods="10"/>
       <file name="news.js" path="D:\h8\P3\final-project\inspect-corrupt-app\server\schemas\news.js">
         <metrics statements="17" coveredstatements="15" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="25" count="2" type="stmt"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
         <line num="28" count="5" type="stmt"/>
         <line num="30" count="5" type="stmt"/>
         <line num="31" count="5" type="stmt"/>
@@ -96,37 +101,69 @@
         <line num="47" count="2" type="stmt"/>
         <line num="51" count="2" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
-        <line num="59" count="2" type="stmt"/>
+        <line num="59" count="3" type="stmt"/>
+      </file>
+      <file name="report.js" path="D:\h8\P3\final-project\inspect-corrupt-app\server\schemas\report.js">
+        <metrics statements="29" coveredstatements="25" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="5"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="45" count="3" type="stmt"/>
+        <line num="48" count="3" type="stmt"/>
+        <line num="49" count="3" type="stmt"/>
+        <line num="50" count="3" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="56" count="4" type="stmt"/>
+        <line num="57" count="4" type="stmt"/>
+        <line num="58" count="4" type="stmt"/>
+        <line num="59" count="3" type="stmt"/>
+        <line num="61" count="1" type="stmt"/>
+        <line num="67" count="3" type="stmt"/>
+        <line num="68" count="3" type="stmt"/>
+        <line num="69" count="3" type="stmt"/>
+        <line num="70" count="3" type="stmt"/>
+        <line num="72" count="0" type="stmt"/>
+        <line num="76" count="4" type="stmt"/>
+        <line num="77" count="4" type="stmt"/>
+        <line num="78" count="4" type="stmt"/>
+        <line num="79" count="4" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="85" count="4" type="stmt"/>
+        <line num="86" count="4" type="stmt"/>
+        <line num="87" count="4" type="stmt"/>
+        <line num="88" count="4" type="stmt"/>
+        <line num="90" count="0" type="stmt"/>
+        <line num="96" count="3" type="stmt"/>
       </file>
       <file name="user.js" path="D:\h8\P3\final-project\inspect-corrupt-app\server\schemas\user.js">
-        <metrics statements="27" coveredstatements="24" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="3"/>
-        <line num="1" count="2" type="stmt"/>
-        <line num="2" count="2" type="stmt"/>
-        <line num="3" count="2" type="stmt"/>
-        <line num="4" count="2" type="stmt"/>
-        <line num="6" count="2" type="stmt"/>
-        <line num="44" count="2" type="stmt"/>
-        <line num="47" count="2" type="stmt"/>
-        <line num="48" count="2" type="stmt"/>
-        <line num="49" count="2" type="stmt"/>
-        <line num="50" count="1" type="stmt"/>
-        <line num="52" count="1" type="stmt"/>
+        <metrics statements="27" coveredstatements="25" conditionals="6" coveredconditionals="5" methods="3" coveredmethods="3"/>
+        <line num="1" count="3" type="stmt"/>
+        <line num="2" count="3" type="stmt"/>
+        <line num="3" count="3" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+        <line num="6" count="3" type="stmt"/>
+        <line num="44" count="3" type="stmt"/>
+        <line num="47" count="6" type="stmt"/>
+        <line num="48" count="6" type="stmt"/>
+        <line num="49" count="6" type="stmt"/>
+        <line num="50" count="3" type="stmt"/>
+        <line num="52" count="3" type="stmt"/>
         <line num="58" count="3" type="stmt"/>
         <line num="59" count="3" type="stmt"/>
         <line num="60" count="3" type="stmt"/>
         <line num="61" count="3" type="stmt"/>
         <line num="63" count="0" type="stmt"/>
-        <line num="67" count="3" type="stmt"/>
-        <line num="68" count="3" type="stmt"/>
-        <line num="69" count="3" type="cond" truecount="3" falsecount="1"/>
+        <line num="67" count="4" type="stmt"/>
+        <line num="68" count="4" type="stmt"/>
+        <line num="69" count="4" type="cond" truecount="3" falsecount="1"/>
         <line num="70" count="0" type="stmt"/>
-        <line num="72" count="3" type="stmt"/>
-        <line num="73" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="72" count="4" type="stmt"/>
+        <line num="73" count="4" type="cond" truecount="2" falsecount="0"/>
         <line num="74" count="1" type="stmt"/>
         <line num="76" count="2" type="stmt"/>
         <line num="77" count="2" type="stmt"/>
-        <line num="81" count="0" type="stmt"/>
-        <line num="87" count="2" type="stmt"/>
+        <line num="81" count="1" type="stmt"/>
+        <line num="87" count="3" type="stmt"/>
       </file>
     </package>
   </project>

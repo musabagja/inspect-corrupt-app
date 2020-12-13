@@ -1,8 +1,8 @@
 const { app } = require('../app');
 const supertest = require("supertest");
+const { db } = require('../config/database')
  
 const request = supertest(app);
-
 
 let server;
 beforeAll( async () => {
@@ -20,10 +20,32 @@ afterAll( async () => {
 
 describe('GET USER BY ID', () => {
 
+  const newUser = {
+    first_name: "Pengguna",
+    last_name: "Pertama",
+    email: "user@mail.com",
+    password: "user",
+    nationalin: "indonesian",
+    birth_date: "01/01/2000",
+    gender: "male",
+  }
+
+  let getId;
+
+  beforeEach( async () => {
+    const { result, insertedId } = await db.collection("Users").insertOne(newUser);
+    getId = insertedId;
+    return result
+  })
+
+  afterEach( async () => {
+    await db.collection("Users").deleteOne({_id: getId})
+  })
+
   it("get user success with status 200 and instance of object", (done) => {
     request.get('/')
       .send({
-        query: `{ User(id: "5fd48f090d4d182be806709c"){_id, first_name, last_name, email, nationalin, birth_date, gender} }`
+        query: `{ User(id: "${getId}"){_id, first_name, last_name, email, nationalin, birth_date, gender} }`
       })
       .set("Accept", "application/json")
       .end((err, res) => {
@@ -37,7 +59,7 @@ describe('GET USER BY ID', () => {
   it("get user success with have property User with value object", (done) => {
     request.get('/')
       .send({
-        query: `{ User(id: "5fd48f090d4d182be806709c"){_id, first_name, last_name, email, nationalin, birth_date, gender} }`
+        query: `{ User(id: "${getId}"){_id, first_name, last_name, email, nationalin, birth_date, gender} }`
       })
       .set("Accept", "application/json")
       .end((err, res) => {
@@ -50,7 +72,7 @@ describe('GET USER BY ID', () => {
   it("get user success with have all property", (done) => {
     request.get('/')
       .send({
-        query: `{ User(id: "5fd48f090d4d182be806709c"){_id, first_name, last_name, email, nationalin, birth_date, gender} }`
+        query: `{ User(id: "${getId}"){_id, first_name, last_name, email, nationalin, birth_date, gender} }`
       })
       .set("Accept", "application/json")
       .end((err, res) => {
@@ -144,6 +166,7 @@ describe('REGISTER USER', () => {
   })
 
   it("Register success with properti Register", (done) => {
+    let idWantToDelete;
   
     request.post('/')
       .send({
@@ -181,7 +204,7 @@ describe("Login user", () => {
   it('Login success', (done) => {
     request.post('/')
       .send({
-        query: "mutation { Login(payload: {email: \"user@mail.com\" password: \"user\"} ) { token } }"
+        query: "mutation { Login(payload: {email: \"admin@mail.com\" password: \"admin\"} ) { token } }"
       })
       .set("Accept", "application/json")
       .end((err, res) => {
@@ -195,12 +218,13 @@ describe("Login user", () => {
   it('Login success get token', (done) => {
     request.post('/')
     .send({
-      query: "mutation { Login(payload: {email: \"user@mail.com\" password: \"user\"} ) { token } }"
+      query: "mutation { Login(payload: {email: \"admin@mail.com\" password: \"admin\"} ) { token } }"
     })
     .set("Accept", "application/json")
     .end((err, res) => {
       if (err) return done(err)
-      const { token } = res.body.data.Login
+      const { token } = res.body.data.Login;
+      // console.log(token);
       expect(token).toBe(token.toString());
       expect(res.body.data.Login).toHaveProperty("token", expect.any(String));
       done();

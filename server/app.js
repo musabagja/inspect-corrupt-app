@@ -1,6 +1,7 @@
 const { ApolloServer, gql, makeExecutableSchema } = require("apollo-server");
 const userSchema = require('./schemas/user');
 const newsSchema = require('./schemas/news');
+const reportSchema = require('./schemas/report')
 const express = require('express');
 const { graphqlHTTP } = require("express-graphql");
 const { startDatabase } = require('./config/database');
@@ -13,8 +14,8 @@ const typeDefs = gql`
 `;
 
 const schema = makeExecutableSchema({
-  typeDefs: [typeDefs, userSchema.typeDefs, newsSchema.typeDefs],
-  resolvers: [userSchema.resolvers, newsSchema.resolvers]
+  typeDefs: [typeDefs, userSchema.typeDefs, newsSchema.typeDefs, reportSchema.typeDefs],
+  resolvers: [userSchema.resolvers, newsSchema.resolvers, reportSchema.resolvers]
 })
 
 const server = new ApolloServer({

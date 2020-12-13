@@ -12,23 +12,6 @@ client.connect();
 
 const db = client.db(databaseName);
 
-async function startDatabase() {
-  const mongoDBURL = await mongo.getConnectionString();
-  const connection = await MongoClient.connect(mongoDBURL, {
-    useNewUrlParser: true,
-  });
- 
-  //Seed Database
-  if (!database) {
-    database = connection.db();
-    await database.collection("Users").insertMany(data.Users);
-  }
- 
-  return database;
-}
 
-async function stopDatabase() {
-  await mongo.stop();
-}
 
-module.exports = { ObjectID, db, stopDatabase, startDatabase };
+module.exports = { ObjectID, db };
