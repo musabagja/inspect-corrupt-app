@@ -1,17 +1,26 @@
-const app = require('../app');
+const { app } = require('../app');
 const supertest = require("supertest");
-const { stopDatabase } = require('../config/database');
  
 const request = supertest(app);
- 
-afterAll(async () => {
-  await stopDatabase();
+
+
+let server;
+beforeAll( async () => {
+  try {
+    server = await app.listen(4200);
+    return server
+  } catch (error) {
+    throw error
+  }
 });
 
+afterAll( async () => {
+  await server.close();
+})
 
 describe('GET USER BY ID', () => {
 
-  it("get user success", (done) => {
+  it("get user success with status 200 and instance of object", (done) => {
     request.get('/')
       .send({
         query: `{ User(id: "5fd48f090d4d182be806709c"){_id, first_name, last_name, email, nationalin, birth_date, gender} }`
@@ -19,24 +28,78 @@ describe('GET USER BY ID', () => {
       .set("Accept", "application/json")
       .end((err, res) => {
         if (err) return done(err)
-        // console.log(res.body, res.status, "<< succes fetch users");
-        expect(200)
+        expect(res.status).toBe(200)
         expect(res.body).toBeInstanceOf(Object);
         done();
       })
   });
 
-  it("get user fail", (done) => {
+  it("get user success with have property User with value object", (done) => {
+    request.get('/')
+      .send({
+        query: `{ User(id: "5fd48f090d4d182be806709c"){_id, first_name, last_name, email, nationalin, birth_date, gender} }`
+      })
+      .set("Accept", "application/json")
+      .end((err, res) => {
+        if (err) return done(err)
+        expect(res.body.data).toHaveProperty("User", expect.any(Object));
+        done();
+      })
+  });
+
+  it("get user success with have all property", (done) => {
+    request.get('/')
+      .send({
+        query: `{ User(id: "5fd48f090d4d182be806709c"){_id, first_name, last_name, email, nationalin, birth_date, gender} }`
+      })
+      .set("Accept", "application/json")
+      .end((err, res) => {
+        if (err) return done(err)
+        expect(res.body.data.User).toHaveProperty("first_name", expect.any(String));
+        expect(res.body.data.User).toHaveProperty("last_name", expect.any(String));
+        expect(res.body.data.User).toHaveProperty("email", expect.any(String));
+        expect(res.body.data.User).toHaveProperty("nationalin", expect.any(String));
+        expect(res.body.data.User).toHaveProperty("birth_date", expect.any(String));
+        expect(res.body.data.User).toHaveProperty("gender", expect.any(String));
+        done();
+      })
+  });
+
+  it("get user fail cause dont match any user", (done) => {
     request.get('/')
       .send({
         query: `{ User(id: "5fd48f090d4d182be80670923"){_id, first_name, last_name, email, nationalin, birth_date, gender} }`
       })
       .set("Accept", "application/json")
       .end((err, res) => {
-        // console.log(res.body, "<< fail fetch");
         if (err) return done(err)
         expect(res.body.data.User).toBe(null);
-        expect(400)
+        done()
+      })
+  })
+
+  it("get user fail with respone body have property errors", (done) => {
+    request.get('/')
+      .send({
+        query: `{ User(id: "5fd48f090d4d182be80670923"){_id, first_name, last_name, email, nationalin, birth_date, gender} }`
+      })
+      .set("Accept", "application/json")
+      .end((err, res) => {
+        if (err) return done(err)
+        expect(res.body).toHaveProperty("errors", expect.any(Array));
+        done()
+      })
+  })
+
+  it("get user fail with respone errors have message", (done) => {
+    request.get('/')
+      .send({
+        query: `{ User(id: "5fd48f090d4d182be80670923"){_id, first_name, last_name, email, nationalin, birth_date, gender} }`
+      })
+      .set("Accept", "application/json")
+      .end((err, res) => {
+        if (err) return done(err)
+        expect(res.body.errors[0].message).toBe("Argument passed in must be a single String of 12 bytes or a string of 24 hex characters");
         done()
       })
   })
@@ -45,7 +108,7 @@ describe('GET USER BY ID', () => {
 
 describe('REGISTER USER', () => {
 
-  it("Register success", (done) => {
+  it("Register success with status 200 and instance of object", (done) => {
   
     request.post('/')
       .send({
@@ -54,14 +117,48 @@ describe('REGISTER USER', () => {
       .set("Accept", "application/json")
       .end((err, res) => {
         if (err) return done(err)
-        // console.log(res.body, res.status, "<< regis success");
         expect(res.status).toBe(200)
         expect(res.body).toBeInstanceOf(Object);
         done();
       })
   })
 
-  it("Register failed", (done) => {
+  it("Register success validation", (done) => {
+  
+    request.post('/')
+      .send({
+        query: "mutation { Register(payload: { first_name: \"User\" last_name: \"user\" email: \"user@mail.com\" password: \"user\" nationalin: \"indonesian\" birth_date: \"01/01/2000\" gender: \"male\"}) {_id first_name last_name email nationalin birth_date gender}}"
+      })
+      .set("Accept", "application/json")
+      .end((err, res) => {
+        if (err) return done(err)
+        expect(res.body.data.Register).toHaveProperty("_id", expect.any(String));
+        expect(res.body.data.Register).toHaveProperty("first_name", expect.any(String));
+        expect(res.body.data.Register).toHaveProperty("last_name", expect.any(String));
+        expect(res.body.data.Register).toHaveProperty("email", expect.any(String));
+        expect(res.body.data.Register).toHaveProperty("nationalin", expect.any(String));
+        expect(res.body.data.Register).toHaveProperty("birth_date", expect.any(String));
+        expect(res.body.data.Register).toHaveProperty("gender", expect.any(String));
+        done();
+      })
+  })
+
+  it("Register success with properti Register", (done) => {
+  
+    request.post('/')
+      .send({
+        query: "mutation { Register(payload: { first_name: \"User\" last_name: \"user\" email: \"user@mail.com\" password: \"user\" nationalin: \"indonesian\" birth_date: \"01/01/2000\" gender: \"male\"}) {_id first_name last_name email nationalin birth_date gender}}"
+      })
+      .set("Accept", "application/json")
+      .end((err, res) => {
+        if (err) return done(err)
+        expect(res.status).toBe(200)
+        expect(res.body.data).toHaveProperty("Register", expect.any(Object));
+        done();
+      })
+  })
+
+  it("Register validation failed", (done) => {
 
     request.post('/')
       .send({
@@ -70,7 +167,6 @@ describe('REGISTER USER', () => {
       .set("Accept", "application/json")
       .end((err, res) => {
         if (err) return done(err)
-        // console.log(res.body, res.status, "<< register failed");
         expect(res.status).toBe(400)
         expect(res.body).toBeInstanceOf(Object);
         done();
@@ -90,14 +186,42 @@ describe("Login user", () => {
       .set("Accept", "application/json")
       .end((err, res) => {
         if (err) return done(err)
-        // console.log(res.body, res.status, "<< login success");
         expect(res.status).toBe(200)
         expect(res.body).toBeInstanceOf(Object);
         done();
       })
   })
 
-  it('Login fail', (done) => {
+  it('Login success get token', (done) => {
+    request.post('/')
+    .send({
+      query: "mutation { Login(payload: {email: \"user@mail.com\" password: \"user\"} ) { token } }"
+    })
+    .set("Accept", "application/json")
+    .end((err, res) => {
+      if (err) return done(err)
+      const { token } = res.body.data.Login
+      expect(token).toBe(token.toString());
+      expect(res.body.data.Login).toHaveProperty("token", expect.any(String));
+      done();
+    })
+  })
+
+  it('Login fail cause wrong email', (done) => {
+    request.post('/')
+    .send({
+      query: "mutation { Login(payload: {email: \"userAdmin@mail.com\" password: \"user\"} ) { token } }"
+    })
+    .set("Accept", "application/json")
+      .end((err, res) => {
+        if (err) return done(err)
+        expect(res.body.errors[0]).toBeInstanceOf(Object)
+        expect(res.body.errors[0].message).toBe("Cannot read property 'password' of null")
+        done();
+      })
+  })
+
+  it('Login fail cause wrong password', (done) => {
     request.post('/')
     .send({
       query: "mutation { Login(payload: {email: \"user@mail.com\" password: \"user1\"} ) { token } }"
@@ -105,8 +229,7 @@ describe("Login user", () => {
     .set("Accept", "application/json")
       .end((err, res) => {
         if (err) return done(err)
-        // console.log(res.body.errors[0], res.status, "<< login fail");
-        expect(res.body.errors[0]).toBeInstanceOf(Object)
+        expect(res.body.errors[0]).toHaveProperty("message", expect.any(String))
         done();
       })
   })

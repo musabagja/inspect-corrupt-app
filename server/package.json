@@ -4,7 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "jest --forceExit --runInBand --verbose --detectOpenHandles --watch"
+    "test": "jest --forceExit --runInBand --verbose --detectOpenHandles --watchAll"
   },
   "keywords": [],
   "author": "",
@@ -14,15 +14,18 @@
     "apollo-boost": "^0.4.9",
     "apollo-server": "^2.19.0",
     "apollo-server-express": "^2.19.0",
+    "axios": "^0.21.0",
     "bcryptjs": "^2.4.3",
     "child_process": "^1.0.2",
     "cross-fetch": "^3.0.6",
     "express-graphql": "^0.12.0",
     "graphql": "^15.4.0",
+    "http-server": "^0.12.3",
     "ioredis": "^4.19.2",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.3",
     "mongodb-memory-server": "^6.9.2",
+    "nodemon": "^2.0.6",
     "request-promise": "^4.2.6",
     "supertest": "^6.0.1",
     "util": "^0.12.3"
