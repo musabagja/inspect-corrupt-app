@@ -1,31 +1,58 @@
 const puppeteer = require('puppeteer');
 
   // Sample Prototype
+const kpbnSearch = async (search) => {
+  const browser = await puppeteer.launch({
+    headless: false,
+    defaultViewport: false
+  });
 
-(
-  async () => {
-    const movieUrl = "https://www.imdb.com/title/tt0068646/?ref_=tt_rec_tti"
+  const page = await browser.newPage();
 
-    const browser = await puppeteer.launch();
+  await page.goto(`https://kpbn.co.id/persh.php?alphabet=${encodeURI(search[0])}`);
 
-    const page = await browser.newPage();
+  const kpbn = await page.evaluate((search) => {
+    let flag = false;
+    const searchTotal = document.querySelectorAll('table > tbody > tr');
+    searchTotal.forEach((item, ind) => {
+      const eachItem = item.querySelectorAll('td');
+      if (eachItem[1] !== undefined) {
+        console.log(eachItem[1].innerText.split(', ')[0]);
+        if (eachItem[1].innerText.split(', ')[0].toLowerCase() === search.toLowerCase()) {
+          flag = true;
+        }
+      }
+    })
+    return flag;
+  }, search);
 
-    await page.goto(movieUrl, { waitUntil: 'networkidle2' });
+  await page.goto(`https://www.indonesia-investments.com/id/bisnis/profil-perusahaan/item74?companysearchstring=${ encodeURI(search) }`);
 
-    const data = await page.evaluate(() => {
-      const title = document.querySelector('div[class="title_wrapper"] > h1').innerText;
-      const rating = document.querySelector('span[itemprop="ratingValue"]').innerText;
-      const ratingCount = document.querySelector('span[itemprop="ratingCount"]').innerText;
-
-      return { 
-        title,
-        rating,
-        ratingCount
+  const indoInvestments = await page.evaluate(search => {
+    let flag = false;
+    const searchTotal = document.querySelectorAll('table[class="companyfiles"]')[0].querySelectorAll('tbody > tr');
+    
+    searchTotal.forEach(item => {
+      const eachItem = item.querySelectorAll('td[class="companyname"]')[0]
+      if (eachItem) {
+        if (eachItem.innerText.toLowerCase() === search.toLowerCase()) {
+          flag = true;
+        }
       }
     })
 
-    console.log(data);
-    
-    await browser.close();
+    return flag;
+  }, search);
+
+  return {kpbn, indoInvestments};
+}
+
+const execute = async () => {
+  const kpbn = await kpbnSearch('abm investama');
+  const score = {
+    kpbn
   }
-)();
+  console.log(score)
+}
+
+execute();
