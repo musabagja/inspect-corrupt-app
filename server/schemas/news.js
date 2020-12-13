@@ -1,7 +1,6 @@
 const { gql } = require('apollo-server')
 const axios = require('axios')
 // const NodeMailer = require('../helpers/nodeMailer')
-
 const typeDefs = gql`
     type Articles {
         source: Source
@@ -13,12 +12,10 @@ const typeDefs = gql`
         publishedAt: String
         content: String 
     }
-
     type Source {
         id: String
         name: String
     }
-
     extend type Query {
         articles(country: String) : [Articles] 
         everything(q: String) : [Articles]
@@ -29,8 +26,7 @@ const resolvers = {
     Query : {
         articles: async (_, args) => {
             const { country } = args
-
-            const apiKey = 'a5e4c8cbdc66490bb551195f44a50a39'
+            const apiKey = '4a6c0cdccd744b7b875b7165bb8f7ba7'
             try {
                 const response = await axios({
                     url: `https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${apiKey}`,
@@ -44,8 +40,8 @@ const resolvers = {
 
         everything: async (_, args) => {
             const { q } = args
+            const apiKey = '4a6c0cdccd744b7b875b7165bb8f7ba7'
 
-            const apiKey = 'a5e4c8cbdc66490bb551195f44a50a39'
             try {
                 const response = await axios({
                     url: `https://newsapi.org/v2/everything?q=${q}&apiKey=${apiKey}`,
