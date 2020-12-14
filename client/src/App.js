@@ -1,21 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import ReportStep1 from './pages/report-cases-step-1/ReportStep1';
 import ReportStep2 from './pages/report-cases-step-2/ReportStep2';
+import ReportStep3 from './pages/Report-step-3';
+import ReportFinish from './pages/Report-finish';
+import Login from './pages/login/Login';
+import Register from './pages/register/Register';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import CasesOption from './pages/CasesOption';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/report-1">
-          <ReportStep1/>
-        </Route>
-        <Route path="/report-2">
-          <ReportStep2/>
-        </Route>
-      </Switch>
-    </BrowserRouter>
+    <div className="App">
+      <Router>
+        <Switch>
+          <Route path='/sign-in'>
+            <Login/>
+          </Route>
+          <Route path='/sign-up'>
+            <Register/>
+          </Route>
+          <Route path="/report-1">
+            <ReportStep1/>
+          </Route>
+          <Route path="/report-2">
+            <ReportStep2/>
+          </Route>
+          <Route path="/step3">
+            <ReportStep3 />
+          </Route>
+          <Route path="/finish">
+            <ReportFinish />
+          </Route>
+          <Route path="/c">
+            <CasesOption/>
+          </Route>
+          <Route exact path="/">
+            <Home/>
+          </Route>
+        </Switch>
+      </Router>
+    </div>
   );
 }
 
