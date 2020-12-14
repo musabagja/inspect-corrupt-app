@@ -1,0 +1,43 @@
+h1 {
+  font-size: 4em;
+}
+
+ul li {
+  list-style: none;
+}
+
+.cases-container {
+  margin-top: 50px;
+}
+
+.cases-contents {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.cases-content {
+  margin: 10px;
+  width: 48%;
+}
+
+.cases-content .uk-card {
+  background-color: #2c3e50;
+  /* border: 1px solid #ffffffad; */
+  color: #FFFFFF;
+  height: 200px;
+}
+
+.cases-content .uk-card:hover {
+  background-color: #2c3e50;
+  color: #FFFFFF;
+}
+
+.cases-content .uk-card h2 {
+  color: #FFFFFF;
+}
+
+.title {
+  margin-bottom: 30px;
+  width: 300px;
+}
