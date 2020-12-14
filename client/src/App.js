@@ -5,13 +5,13 @@ import {
   Report1, Report2, Report3, ReportFinish
 } from './pages';
 import { Navbar } from './components';
-import store from './store';
+// import store from './store';
 
 function App() {
   return (
     <div className="App">
       <Router>
-        <Provider store={ store }>
+        {/* <Provider store={ store }> */}
           <Navbar/>
           <Switch>
             <Route path="/report/:report/2">
@@ -42,7 +42,7 @@ function App() {
               <HomePage/>
             </Route>
           </Switch>
-        </Provider>
+        {/* </Provider> */}
       </Router>
     </div>
   );
