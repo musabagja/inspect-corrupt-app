@@ -79,13 +79,20 @@ input[type=text] {
   color: #000000;
 }
 
+.btn-sign-in {
+  color: #2C3E50; 
+  margin-top: 50px; 
+  border-radius: 11px; 
+  background-color: white; 
+  font-weight: 1000;
+}
+
 .btn-sign-in-google {
   margin-top: 50px;
-  color: "white"; 
+  color: white; 
   margin-top: 50; 
   border-radius: 11px;
   font-size: 18px;
-  color: white;
   background-color: #2C3E50;
 }
 

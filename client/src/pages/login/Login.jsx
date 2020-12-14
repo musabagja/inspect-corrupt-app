@@ -21,17 +21,17 @@ export default function LoginPage() {
                     <Link to="/sign-up">
                       <p className="legend-2 l-2" style={{color: "#E74C3C"}}>Lets sign up</p>
                     </Link>
-                    <div class="uk-margin">
-                        <input class="uk-input" type="text" placeholder="Email"/>
+                    <div className="uk-margin">
+                        <input className="uk-input" type="text" placeholder="Email"/>
                     </div>
-                    <div class="uk-margin">
-                        <input class="uk-input input-password" type="text" placeholder="Password"/>
+                    <div className="uk-margin">
+                        <input className="uk-input input-password" type="text" placeholder="Password"/>
                     </div>
-                    <button class="uk-button uk-button-default" style={{color: "white", marginTop: 50, borderRadius: 11}}>SIGN IN</button>
+                    <button className="uk-button uk-button-default btn-sign-in">SIGN IN</button>
                   </fieldset>
                 </form>
               </div>
-              <button class="uk-button uk-button-default btn-sign-in-google"><img src={Google} alt=""/> Continue with google</button>
+              <button className="uk-button uk-button-default btn-sign-in-google"><img src={Google} alt=""/> Continue with google</button>
             </div>
           </div>
         </div>

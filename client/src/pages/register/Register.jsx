@@ -14,37 +14,37 @@ export default function LoginPage() {
             <div className="card-login">
               <div className="uk-card uk-card-default uk-card-body">
                 <form>
-                  <fieldset class="uk-fieldset">
-                  <legend class="uk-legend">SIGN UP</legend>
+                  <fieldset className="uk-fieldset">
+                  <legend className="uk-legend">SIGN UP</legend>
                     <p className="legend-2">Have an account?</p>
                     <Link to="/sign-in">
                       <p className="legend-2 l-2" style={{color: "#E74C3C"}}>Lets sign in</p>
                     </Link>
 
-                    <div class="uk-grid-column-medium uk-child-width-1-2 form" uk-grid>
-                      <div class="uk-margin" style={{marginTop: 20}}>
-                          <input class="uk-input" type="text" placeholder="First Name"/>
+                    <div className="uk-grid-column-medium uk-child-width-1-2 form" uk-grid>
+                      <div className="uk-margin" style={{marginTop: 20}}>
+                          <input className="uk-input" type="text" placeholder="First Name"/>
                       </div>
-                      <div class="uk-margin">
-                          <input class="uk-input" type="text" placeholder="Last Name"/>
+                      <div className="uk-margin">
+                          <input className="uk-input" type="text" placeholder="Last Name"/>
                       </div>
-                      <div class="uk-margin">
-                          <input class="uk-input" type="text" placeholder="Email"/>
+                      <div className="uk-margin">
+                          <input className="uk-input" type="text" placeholder="Email"/>
                       </div>
-                      <div class="uk-margin">
-                          <input class="uk-input" type="text" placeholder="Password"/>
+                      <div className="uk-margin">
+                          <input className="uk-input" type="text" placeholder="Password"/>
                       </div>
-                      <div class="uk-margin">
-                          <input class="uk-input" type="text" placeholder="Nationalist"/>
+                      <div className="uk-margin">
+                          <input className="uk-input" type="text" placeholder="Nationalist"/>
                       </div>
-                      <div class="uk-margin">
-                          <input class="uk-input" type="date" placeholder="Birt Date"/>
+                      <div className="uk-margin">
+                          <input className="uk-input" type="date" placeholder="Birt Date"/>
                       </div>
-                      <div class="uk-margin">
-                          <input class="uk-input" type="text" placeholder="Gender"/>
+                      <div className="uk-margin">
+                          <input className="uk-input" type="text" placeholder="Gender"/>
                       </div>
                     </div>
-                    <button class="uk-button uk-button-default" style={{color: "white", marginTop: 50, borderRadius: 11}}>SIGN UP</button>
+                    <button className="uk-button uk-button-default btn-sign-up">SIGN UP</button>
                   </fieldset>
                 </form>
               </div>
