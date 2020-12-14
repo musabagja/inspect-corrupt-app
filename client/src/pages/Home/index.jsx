@@ -1,5 +1,6 @@
 import './style.css';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 export default () => {
   return (
@@ -9,7 +10,9 @@ export default () => {
         <div className="uk-container">
           <div className="home-content">
             <div className="action-buttons">
-              <button className="uk-button ins-button">Credibility</button>
+              <Link to="/tax-and-credibility">
+                <button className="uk-button ins-button">Credibility</button>
+              </Link>
               <button className="uk-button ins-button">Report</button>
               <button className="uk-button ins-button">TAX-ID</button>
             </div>
