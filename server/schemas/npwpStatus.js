@@ -7,7 +7,7 @@ const typeDefs = gql`
   }
 
   extend type Mutation {
-    npwp(number: Int): NPWP
+    npwp(number: String): NPWP
   }
 `
 
