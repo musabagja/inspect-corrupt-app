@@ -1,5 +1,5 @@
 import React from 'react'
-import './style.css'
+import './reportStep2.css'
 
 export default function ReportStep2() {
   return (
