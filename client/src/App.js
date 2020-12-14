@@ -1,3 +1,5 @@
+import ReportStep3 from './pages/Report-step-3';
+import ReportFinish from './pages/Report-finish';
 import Login from './pages/login/Login';
 import Register from './pages/register/Register';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -14,6 +16,12 @@ function App() {
           </Route>
           <Route path='/sign-up'>
             <Register/>
+          </Route>
+          <Route path="/step3">
+            <ReportStep3 />
+          </Route>
+          <Route path="/finish">
+            <ReportFinish />
           </Route>
           <Route path="/c">
             <CasesOption/>
