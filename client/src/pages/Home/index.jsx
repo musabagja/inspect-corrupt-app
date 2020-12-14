@@ -11,7 +11,7 @@ export default () => {
             <div className="action-buttons">
               <button className="uk-button ins-button">Credibility</button>
               <button className="uk-button ins-button">Report</button>
-              <button className="uk-button ins-button">TaxID</button>
+              <button className="uk-button ins-button">TAX-ID</button>
             </div>
             <h3>News</h3>
             <div className="ez-liner"></div>

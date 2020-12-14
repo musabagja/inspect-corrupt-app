@@ -1,45 +1,42 @@
-import ReportStep1 from './pages/report-cases-step-1/ReportStep1';
-import ReportStep2 from './pages/report-cases-step-2/ReportStep2';
-import ReportStep3 from './pages/Report-step-3';
-import ReportFinish from './pages/Report-finish';
-import Login from './pages/login/Login';
-import Register from './pages/register/Register';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import CasesOption from './pages/CasesOption';
-import TaxAndCredibility from './pages/tax-and-credibility/TaxAndCredibility';
+import { 
+  HomePage, RegisterPage, LoginPage, TaxCredibilityPage, CasesOptionPage,
+  Report1, Report2, Report3, ReportFinish
+} from './pages';
+import { Navbar } from './components';
 
 function App() {
   return (
     <div className="App">
       <Router>
+        <Navbar/>
         <Switch>
+          <Route path="/report/:report/2">
+            <Report2/>
+          </Route>
+          <Route path="/report/:report/3">
+            <Report3/>
+          </Route>
+          <Route path="/report/:report/4">
+            <ReportFinish/>
+          </Route>
+          <Route path="/report/:report">
+            <Report1/>
+          </Route>
           <Route path='/sign-in'>
-            <Login/>
+            <LoginPage/>
           </Route>
           <Route path='/sign-up'>
-            <Register/>
-          </Route>
-          <Route path="/report-1">
-            <ReportStep1/>
-          </Route>
-          <Route path="/report-2">
-            <ReportStep2/>
-          </Route>
-          <Route path="/step3">
-            <ReportStep3 />
-          </Route>
-          <Route path="/finish">
-            <ReportFinish />
+            <RegisterPage/>
           </Route>
           <Route path="/c">
-            <CasesOption/>
+            <CasesOptionPage/>
           </Route>
           <Route path="/tax-and-credibility">
-            <TaxAndCredibility/>
+            <TaxCredibilityPage/>
           </Route>
           <Route exact path="/">
-            <Home/>
+            <HomePage/>
           </Route>
         </Switch>
       </Router>

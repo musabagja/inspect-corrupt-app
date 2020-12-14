@@ -1,0 +1,19 @@
+.navigation a {
+  text-decoration: none;
+}
+
+.navbar {
+  background-color: #2C3E50;
+  position: absolute;
+  width: 100%;
+  z-index: 20;
+}
+
+.navigation {
+  display: flex;
+}
+
+.navigation h3 {
+  margin-top: 15px;
+  color: #ffffff;
+}

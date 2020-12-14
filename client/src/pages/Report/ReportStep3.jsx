@@ -1,51 +1,50 @@
-import React, { useState } from 'react'
-import { useHistory } from 'react-router-dom'
-import { gql, useMutation } from '@apollo/client'
+import React from 'react';
 
-function ReportStep3(params) {
+function ReportStep3(props) {
 
-    const ADD_REPORT = gql`
-        mutation addReport($payload: newReport) {
-            AddReport(payload: $payload) {
-                _id
-            }
-        }
-    `;
+    // const ADD_REPORT = gql`
+    //     mutation addReport($payload: newReport) {
+    //         AddReport(payload: $payload) {
+    //             _id
+    //         }
+    //     }
+    // `;
 
-    const [addReport] = useMutation(ADD_REPORT)
+    // const [addReport] = useMutation(ADD_REPORT)
 
-    const [inputPayload, setInputPayload] = useState({
-        UserId: '',
-        case: '',
-        entity: '',
-        province: '',
-        city: '',
-        dateHappened: '',
-        description: '',
-        isDocumentProvided: false,
-        involvedPerson: [''],
-        personRole:'' ,  
-        isReported: false,
-        isKeepInTouch: false,
-    })
+    // const [inputPayload, setInputPayload] = useState({
+    //     UserId: '',
+    //     case: '',
+    //     entity: '',
+    //     province: '',
+    //     city: '',
+    //     dateHappened: '',
+    //     description: '',
+    //     isDocumentProvided: false,
+    //     involvedPerson: [''],
+    //     personRole:'' ,  
+    //     isReported: false,
+    //     isKeepInTouch: false,
+    // })
 
 
-    const history = useHistory()
+    // const history = useHistory()
 
-    function  onSubmitForm(event) {
-        event.preventDefault()
-        addReport({
-            variables: {
-                payload: inputPayload
-            }
-        })
-        history.push('/finish')    
-    }
+    // function onSubmitForm(event) {
+    //     event.preventDefault()
+    //     addReport({
+    //         variables: {
+    //             payload: inputPayload
+    //         }
+    //     })
+    //     history.push('/finish')    
+    // }
 
     return (
         <div class="uk-container uk-margin-xlarge-top">
             <div class="uk-flex">
-                <form onSubmit={(event) => onSubmitForm(event)}>
+                <form> 
+                    {/* onSubmit={(event) => onSubmitForm(event)} */}
                     <h4>WE WOULD LIKE TO GET IN TOUCH WITH YOU FOR FURTHER INFORMATION</h4>
 
                     <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
