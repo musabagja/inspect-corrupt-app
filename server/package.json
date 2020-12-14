@@ -27,6 +27,7 @@
     "mongodb-memory-server": "^6.9.2",
     "nodemon": "^2.0.6",
     "puppeteer": "^5.5.0",
+    "puppeteer-core": "^5.5.0",
     "request-promise": "^4.2.6",
     "supertest": "^6.0.1",
     "util": "^0.12.3"
