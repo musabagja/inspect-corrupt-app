@@ -1,3 +1,8 @@
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+
 textarea {
   background-color: #B1B1B1;
 }
@@ -27,7 +32,7 @@ textarea {
   position: absolute;
   width: 138px;
   height: 30px;
-  top: 590px;
+  top: 610px;
   font-size: 14px;
   background-color: #2C3E50;
   color: #ffffff;
