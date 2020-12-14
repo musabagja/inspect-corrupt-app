@@ -1,4 +1,3 @@
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import ReportStep1 from './pages/report-cases-step-1/ReportStep1';
 import ReportStep2 from './pages/report-cases-step-2/ReportStep2';
 import ReportStep3 from './pages/Report-step-3';
@@ -8,6 +7,7 @@ import Register from './pages/register/Register';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import CasesOption from './pages/CasesOption';
+import TaxAndCredibility from './pages/tax-and-credibility/TaxAndCredibility';
 
 function App() {
   return (
@@ -34,6 +34,9 @@ function App() {
           </Route>
           <Route path="/c">
             <CasesOption/>
+          </Route>
+          <Route path="/tax-and-credibility">
+            <TaxAndCredibility/>
           </Route>
           <Route exact path="/">
             <Home/>

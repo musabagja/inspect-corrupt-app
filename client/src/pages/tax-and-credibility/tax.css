@@ -1,0 +1,16 @@
+.tax-credibility {
+  margin-top: 188px;
+}
+
+.uk-text-center {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.btn-submit {
+  color: white; 
+  margin-top: 50px; 
+  border-radius: 11px; 
+  background-color: #2C3E50; 
+  font-weight: 1000;
+}

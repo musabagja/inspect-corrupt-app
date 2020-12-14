@@ -13,7 +13,7 @@ export default function LoginPage() {
                 <p>We’ll be watching you</p>
             </div>
             <div className="card-login">
-              <div className="uk-card uk-card-default uk-card-body">
+              <div className="uk-card uk-card-default uk-card-body card-login">
                 <form>
                   <fieldset class="uk-fieldset">
                   <legend class="uk-legend">SIGN IN</legend>
