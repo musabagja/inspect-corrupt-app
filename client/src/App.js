@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { Switch, Route } from 'react-router-dom'
+import ReportStep3 from './pages/Report-step-3'
+import HomePage from './pages/Home'
+import ReportFinish from './pages/Report-finish'
+import { ApolloProvider } from '@apollo/client';
+import client from './config/index'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ApolloProvider client={client}>
+
+      <Switch>
+        <Route exact path="/">
+          <HomePage />
+        </Route>
+        <Route path="/step3">
+          <ReportStep3 />
+        </Route>
+        <Route path="/finish">
+          <ReportFinish />
+        </Route>
+      </Switch>
+    </ApolloProvider>
   );
 }
 
