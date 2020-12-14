@@ -2,6 +2,7 @@ const { gql } = require('apollo-server');
 const { register, getUser, getUserByEmail } = require('../models/user');
 const { compare } = require('../helpers/encrypt');
 const { sign: jwtSign } = require('../helpers/jwt');
+const registerNotValidated = require('../helpers/validator');
 
 const typeDefs = gql`
   type User {
@@ -57,7 +58,13 @@ const resolvers = {
     Register: async (_, args) => {
       try {
         const { payload } = args;
+        
+        if (registerNotValidated(payload)) {
+          return registerNotValidated(payload);
+        }
+        
         const newUser = await register(payload);
+
         return newUser.ops[0];
       } catch(err) {
         return err;

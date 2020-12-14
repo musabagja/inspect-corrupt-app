@@ -1,7 +1,8 @@
 const { ApolloServer, gql, makeExecutableSchema } = require("apollo-server");
 const userSchema = require('./schemas/user');
 const newsSchema = require('./schemas/news');
-const reportSchema = require('./schemas/report')
+const reportSchema = require('./schemas/report');
+const credibleSchema = require('./schemas/credible');
 const express = require('express');
 const { graphqlHTTP } = require("express-graphql");
 const { startDatabase } = require('./config/database');
@@ -14,8 +15,8 @@ const typeDefs = gql`
 `;
 
 const schema = makeExecutableSchema({
-  typeDefs: [typeDefs, userSchema.typeDefs, newsSchema.typeDefs, reportSchema.typeDefs],
-  resolvers: [userSchema.resolvers, newsSchema.resolvers, reportSchema.resolvers]
+  typeDefs: [typeDefs, userSchema.typeDefs, newsSchema.typeDefs, reportSchema.typeDefs, credibleSchema.typeDefs],
+  resolvers: [userSchema.resolvers, newsSchema.resolvers, reportSchema.resolvers, credibleSchema.resolvers]
 })
 
 const server = new ApolloServer({
@@ -29,13 +30,13 @@ const context = async () => {
 }
 
 
-app.use('/', graphqlHTTP({schema, rootValue: resolvers, context}))
+// app.use('/', graphqlHTTP({schema, rootValue: resolvers, context}))
 
-// server.listen().then(() => {
-//   console.log(`
-//     INSPECT Server is running!
-//     Listening on port 4000
-//   `);
-// });
+server.listen().then(() => {
+  console.log(`
+    INSPECT Server is running!
+    Listening on port 4000
+  `);
+});
 
 module.exports = { server, app };

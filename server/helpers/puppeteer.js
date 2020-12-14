@@ -1,11 +1,8 @@
 const puppeteer = require('puppeteer');
 
   // Sample Prototype
-const kpbnSearch = async (search) => {
-  const browser = await puppeteer.launch({
-    headless: false,
-    defaultViewport: false
-  });
+const checkCredible = async (search) => {
+  const browser = await puppeteer.launch();
 
   const page = await browser.newPage();
 
@@ -48,7 +45,7 @@ const kpbnSearch = async (search) => {
 }
 
 const execute = async () => {
-  const kpbn = await kpbnSearch('abm investama');
+  const kpbn = await checkCredible('abm investama');
   const score = {
     kpbn
   }
@@ -56,3 +53,5 @@ const execute = async () => {
 }
 
 execute();
+
+module.exports = checkCredible;

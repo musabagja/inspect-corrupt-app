@@ -27,6 +27,7 @@ const register = (user) => {
     message = 'National Identity Number required';
     return { status, message };
   }
+  return false;
 }
 
 module.exports = {
