@@ -4,8 +4,9 @@ import './reportStep1.css'
 export default function ReportStep1() {
   return (
     <>
+    <div className="uk-container">
       <h2 className="q1-custom">SELECT THE KIND OF ENTITY INVOLVED IN THE INCIDENT</h2>
-      <hr className />
+      <hr />
       <div className="a1-rad-custom">
         <input className="rad-input" type="radio" name="entity" id="Local Government" value="Local Government" />
         <label htmlFor="Local Government">Local Government</label> <br />
@@ -32,6 +33,7 @@ export default function ReportStep1() {
         </select>
       </div>
       <button className="btn-custom">Next</button>
+    </div>
     </>
   )
 }
