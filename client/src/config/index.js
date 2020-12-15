@@ -12,4 +12,18 @@ const client = new ApolloClient({
   cache: new InMemoryCache()
 });
 
+export const reportData2 = makeVar({
+  dateHappend:'',
+  description: '',
+  isDocumentProvided: '',
+  involvedPerson: '',
+  personRole: '',
+  isReported: '',
+})
+
+export const reportData3 = makeVar({
+  isKeepInTouch: '',
+  aboutInspectApp: ''
+})
+
 export default client

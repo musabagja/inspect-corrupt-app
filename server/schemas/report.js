@@ -16,6 +16,7 @@ const typeDefs = gql`
     personRole: String
     isReported: Boolean
     isKeepInTouch: Boolean
+    aboutInspectApp: String
   }
 
   input newReport {
@@ -31,6 +32,7 @@ const typeDefs = gql`
     personRole: String!
     isReported: Boolean!
     isKeepInTouch: Boolean!
+    aboutInspectApp: String
   }
   extend type Query {
     reports: [Report]
