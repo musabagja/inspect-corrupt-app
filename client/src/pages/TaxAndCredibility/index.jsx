@@ -2,6 +2,7 @@ import './tax.css';
 import React, { useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
 import { useHistory } from "react-router-dom";
+import ReactLoading from 'react-loading';
 import { css } from '@emotion/react';
 import ClipLoader from 'react-spinners/ClipLoader';
 
@@ -36,6 +37,9 @@ export default function TaxAndCredibility() {
   const [npwp, setNpwp] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [kbpn, setKbpn] = useState(true);
+  const [indoInvestments, setIndoInvestments] = useState(true);
+  const [idx, setIdx] = useState(true);
 
   function onChange(e) {
     const value = e.target.value;
@@ -106,13 +110,10 @@ export default function TaxAndCredibility() {
         :
           ''
       }
-      {loading && <div className="sweet-loading">
-        <ClipLoader
-          css={override}
-          size={150}
-          color={"#123abc"}
-        />
-      </div>
+      {loading && 
+        <div className="loading">
+          <ReactLoading type="spinningBubbles" color="#e74c3c"/>
+        </div>
       }
       <div className="uk-child-width-expand@s uk-text-center" uk-grid="true">
         <div>

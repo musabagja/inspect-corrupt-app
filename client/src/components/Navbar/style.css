@@ -9,7 +9,7 @@
 
 .navbar {
   background-color: #2C3E50;
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: 20;
   top: 0;

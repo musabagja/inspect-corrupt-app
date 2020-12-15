@@ -21,4 +21,9 @@ export const reportData2 = makeVar({
   isReported: '',
 })
 
+export const reportData3 = makeVar({
+  isKeepInTouch: '',
+  aboutInspectApp: ''
+})
+
 export default client

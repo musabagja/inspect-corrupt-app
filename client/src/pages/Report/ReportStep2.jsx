@@ -16,7 +16,7 @@ export default function ReportStep2() {
     personRole: '',
     isReported: '',
   })
-
+  
   function handleNext() {
     reportData2(data2)
     history.push(`/report/${report}/3`)

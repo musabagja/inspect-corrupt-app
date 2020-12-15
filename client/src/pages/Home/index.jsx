@@ -1,8 +1,34 @@
 import './style.css';
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
+import { gql, useQuery } from '@apollo/client';
+import ReactLoading from 'react-loading';
+
+const GET_NEW = gql`
+  query News($q: String) {
+    articles(q: $q) {
+      judul
+      link
+      poster
+      tipe
+      waktu
+    }
+  }
+`;
 
 export default () => {
+  const [news, setNews] = useState([])
+
+  const { data, loading, error } = useQuery(GET_NEW, {
+    variables: {
+      q: 'corruption'
+    }
+  });
+
+  if (data) {
+    console.log(data);
+  }
+
   return (
     <React.Fragment>
       <section className="home-section">
@@ -20,15 +46,23 @@ export default () => {
               </div>
               <h3>News</h3>
               <div className="ez-liner"></div>
+              {loading && 
+                <div className="loading">
+                  <ReactLoading type="spinningBubbles" color="#e74c3c"/>
+                </div>
+              }
               <div className="news-container">
-                <div className="news-content">
+              {data?.articles.map((article, index) => (
+                <div key={index} className="news-content">
                   <div>
-                    <img src="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"/>
+                    <img src={article.poster}/>
                   </div>
                   <div>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                    <p>{article?.judul}</p>
+
                   </div>
                 </div>
+              ))}
               </div>
             </div>
           </div>

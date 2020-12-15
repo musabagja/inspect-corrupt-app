@@ -1,9 +1,31 @@
-import { gql, useMutation } from '@apollo/client';
+
 import React, { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom'
+import { reportData3 } from '../../config/index'
+import { gql, useMutation } from '@apollo/client';
 import { reportData1, reportData2 } from '../../config/index'
-
 function ReportStep3() {
+
+    const history = useHistory()
+    const { report } = useParams()
+
+    const [data3, setData3] = useState({
+        isKeepInTouch: '',
+        aboutInspectApp: ''
+    })
+
+    function handleNext() {
+        reportData3(data3)
+        history.push(`/report/${report}/4`)
+    }
+
+    function handleChange(event) {
+        const { name, value } = event.target
+        setData3({
+            ...data3,
+            [name]: value
+        })
+    }
 
   const MAKE_REPORT = gql`
     mutation AddReport($payload: newReport!) {
@@ -57,7 +79,7 @@ function ReportStep3() {
     })
     history.push(`/report/${report}/4`)
   }
-
+  
   function handleChange(event) {
     const { name, value } = event.target
     setData3({

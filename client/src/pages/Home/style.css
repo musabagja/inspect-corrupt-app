@@ -14,7 +14,6 @@
 .home-image {
   background-color: black;
   background-image: url("https://images.unsplash.com/photo-1423592707957-3b212afa6733?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1789&q=80");
-  position: fixed;
   background-size: cover;
   width: 100vw;
   height: 50vh;
@@ -22,11 +21,9 @@
 }
 
 .home-container {
-  background-color: #FFFFFF;
-  position: absolute;
   top: 375px;
   width: 100%;
-  height: 50%;
+  height: 100%;
   z-index: 10;
 }
 
@@ -54,6 +51,7 @@
   display: flex;
   flex-wrap: wrap;
   width: 100%;
+  height: 100%;
 }
 
 .news-content {
@@ -71,4 +69,9 @@
 
 .news-content div {
   width: 100%;
+}
+
+.loading {
+  position: absolute;
+  margin: 100px 100px;
 }
