@@ -11,28 +11,27 @@ const typeDefs = gql`
     city: String
     dateHappened: String
     description: String
-    isDocumentProvided: Boolean
+    isDocumentProvided: String
     involvedPerson: [String]
     personRole: String
-    isReported: Boolean
-    isKeepInTouch: Boolean
+    isReported: String
+    isKeepInTouch: String
     aboutInspectApp: String
     status: String
   }
 
   input newReport {
-    UserEmail: String!
     case: String!
     entity: String!
     province: String!
     city: String!
     dateHappened: String!
     description: String!
-    isDocumentProvided: Boolean!
+    isDocumentProvided: String!
     involvedPerson: [String]!
     personRole: String!
-    isReported: Boolean!
-    isKeepInTouch: Boolean!
+    isReported: String!
+    isKeepInTouch: String!
     aboutInspectApp: String
   }
   extend type Query {
