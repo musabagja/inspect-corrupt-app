@@ -2,7 +2,7 @@ import './tax.css';
 import React, { useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
 import { useHistory } from "react-router-dom";
-import { css } from '@emotion/core';
+import { css } from '@emotion/react';
 import ClipLoader from 'react-spinners/ClipLoader';
 
 const CREDIBILITY = gql`
