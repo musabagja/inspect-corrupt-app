@@ -1,22 +1,30 @@
+import { gql, useMutation } from '@apollo/client';
 import React, { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom'
-import { reportData3 } from '../../config/index'
+import { reportData1, reportData2 } from '../../config/index'
 
 function ReportStep3() {
 
-    const history = useHistory()
-    const { report } = useParams()
-
-    const [data3, setData3] = useState({
-        isKeepInTouch: '',
-        aboutInspectApp: ''
-    })
-
-    function handleNext() {
-        reportData3(data3)
-        history.push(`/report/${report}/4`)
+  const MAKE_REPORT = gql`
+    mutation AddReport($payload: newReport!) {
+      AddReport(payload: $payload) { 
+        _id 
+        case 
+        entity
+        province
+        city
+        dateHappened
+        description
+        isDocumentProvided
+        involvedPerson
+        personRole
+        isReported
+        isKeepInTouch
+        aboutInspectApp
+      }
     }
-
+  `
+  
     function handleChange(event) {
         const { name, value } = event.target
         setData3({
@@ -28,52 +36,42 @@ function ReportStep3() {
             [name]: value
         });
     }
-
-    // const ADD_REPORT = gql`
-    //     mutation addReport($payload: newReport) {
-    //         AddReport(payload: $payload) {
-    //             _id
-    //         }
-    //     }
-    // `;
-
-    // const [addReport] = useMutation(ADD_REPORT)
-
-    // const [inputPayload, setInputPayload] = useState({
-    //     UserId: '',
-    //     case: '',
-    //     entity: '',
-    //     province: '',
-    //     city: '',
-    //     dateHappened: '',
-    //     description: '',
-    //     isDocumentProvided: false,
-    //     involvedPerson: [''],
-    //     personRole:'' ,  
-    //     isReported: false,
-    //     isKeepInTouch: false,
-    // })
+  const data1cache = reportData1()
+  const data2cache = reportData2()
 
 
-    // const history = useHistory()
+  const history = useHistory()
+  const { report } = useParams()
+  const [addReport] = useMutation(MAKE_REPORT)
 
-    // function onSubmitForm(event) {
-    //     event.preventDefault()
-    //     addReport({
-    //         variables: {
-    //             payload: inputPayload
-    //         }
-    //     })
-    //     history.push('/finish')    
-    // }
+  const [data3, setData3] = useState({
+    isKeepInTouch: '',
+    aboutInspectApp: ''
+  })
 
-    return (
-        <div class="uk-container uk-margin-xlarge-top">
-            <div class="uk-flex">
-                <form>
-                    {/* onSubmit={(event) => onSubmitForm(event)} */}
-                    <h4>WE WOULD LIKE TO GET IN TOUCH WITH YOU FOR FURTHER INFORMATION</h4>
+  function handleNext() {
+    const payload = { ...data1cache, ...data2cache, ...data3 }
+    console.log(payload)
+    addReport({
+      variables: { payload: payload }
+    })
+    history.push(`/report/${report}/4`)
+  }
 
+  function handleChange(event) {
+    const { name, value } = event.target
+    setData3({
+      ...data3,
+      [name]: value
+    })
+  }
+
+  return (
+    <div class="uk-container uk-margin-xlarge-top">
+      <div class="uk-flex">
+        <form>
+          {/* onSubmit={(event) => onSubmitForm(event)} */}
+          <h4>WE WOULD LIKE TO GET IN TOUCH WITH YOU FOR FURTHER INFORMATION</h4>
                     <div class="uk-margin uk-grid-small uk-child-width-auto uk-grid">
                         <label>
                             <input

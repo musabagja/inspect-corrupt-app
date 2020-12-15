@@ -15,10 +15,6 @@ function App() {
       <ApolloProvider client={client}>
         <Router>
             <Switch>
-            <Route path="/report/admin">
-                <Navbar/>
-                <AdminReport/>
-              </Route>
               <Route path="/report/:report/2">
                 <Navbar/>
                 <Report2/>
@@ -35,7 +31,10 @@ function App() {
                 <Navbar/>
                 <Report1/>
               </Route>
-              
+              <Route path="/admin">
+                <Navbar/>
+                <AdminReport/>
+              </Route>
               <Route path='/sign-in'>
                 <LoginPage/>
               </Route>

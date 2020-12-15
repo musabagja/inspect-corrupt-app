@@ -4,34 +4,34 @@ const { makeReports, getReports, updateReport, deleteReport, getReportById } = r
 const typeDefs = gql`
   type Report {
     _id: ID
-    UserId: String
+    UserEmail: String
     case: String
     entity: String
     province: String
     city: String
     dateHappened: String
     description: String
-    isDocumentProvided: Boolean
+    isDocumentProvided: String
     involvedPerson: [String]
     personRole: String
-    isReported: Boolean
-    isKeepInTouch: Boolean
+    isReported: String
+    isKeepInTouch: String
     aboutInspectApp: String
+    status: String
   }
 
   input newReport {
-    UserId: String!
     case: String!
     entity: String!
     province: String!
     city: String!
     dateHappened: String!
     description: String!
-    isDocumentProvided: Boolean!
+    isDocumentProvided: String!
     involvedPerson: [String]!
     personRole: String!
-    isReported: Boolean!
-    isKeepInTouch: Boolean!
+    isReported: String!
+    isKeepInTouch: String!
     aboutInspectApp: String
   }
   extend type Query {
@@ -40,7 +40,7 @@ const typeDefs = gql`
   }
   extend type Mutation {
     AddReport(payload: newReport!): Report
-    UpdateReport(_id: ID, payload: newReport!) : Report
+    UpdateReport(_id: ID, status: String!) : Report
     DeleteReport(_id: ID) : Report
   }
 `
@@ -69,7 +69,8 @@ const resolvers = {
     AddReport: async (_, args) => {
       try {
         const { payload } = args
-        const newReports = await makeReports(payload)
+        const data = { ...payload, status: "Waiting for Submission"}
+        const newReports = await makeReports(data)
         return newReports.ops[0]
       } catch (error) {
         return error
@@ -77,8 +78,8 @@ const resolvers = {
     },
     UpdateReport: async (_, args) => {
       try {
-        const { _id, payload } = args
-        const updatedReport = await updateReport(_id, payload)
+        const { _id, status } = args
+        const updatedReport = await updateReport(_id, status)
         return updatedReport.value
       } catch (error) {
         return error
