@@ -9,15 +9,14 @@ export default function ReportStep2() {
   const { report } = useParams()
 
   const [data2, setData2] = useState({
-    dateHappend:'',
+    dateHappened:'',
     description: '',
     isDocumentProvided: '',
     involvedPerson: '',
     personRole: '',
     isReported: '',
   })
-
-
+  
   function handleNext() {
     reportData2(data2)
     history.push(`/report/${report}/3`)
@@ -47,9 +46,9 @@ export default function ReportStep2() {
           </div>
           <div style={{ marginBottom: "10px" }}>
             <label htmlFor="">Could you provide the documents?</label> <br />
-            <input onChange={(event) => handleChange(event)} type="radio" name="isDocumentProvided" id="Yes" value="true" />
+            <input onChange={(event) => handleChange(event)} type="radio" name="isDocumentProvided" id="Yes" value={true} />
             <label htmlFor="Yes">Yes</label> <br />
-            <input onChange={(event) => handleChange(event)} type="radio" name="isDocumentProvided" id="No" value="false" />
+            <input onChange={(event) => handleChange(event)} type="radio" name="isDocumentProvided" id="No" value={false} />
             <label htmlFor="No">No</label>
           </div>
         </div>
@@ -67,9 +66,9 @@ export default function ReportStep2() {
           </div>
           <div style={{ marginBottom: "10px" }}>
             <label htmlFor="">Have you already reported the incident to another authority?</label> <br />
-            <input onChange={(event) => handleChange(event)} type="radio" name="isReported" id="Yes" value="true" />
+            <input onChange={(event) => handleChange(event)} type="radio" name="isReported" id="Yes" value={true} />
             <label htmlFor="Yes">Yes</label> <br />
-            <input onChange={(event) => handleChange(event)} type="radio" name="isReported" id="No" value="false" />
+            <input onChange={(event) => handleChange(event)} type="radio" name="isReported" id="No" value={false} />
             <label htmlFor="No">No</label>
           </div>
         </div>

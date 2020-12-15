@@ -2,7 +2,7 @@ const { gql } = require('apollo-server');
 const { register, getUser, getUserByEmail } = require('../models/user');
 const { compare } = require('../helpers/encrypt');
 const { sign: jwtSign } = require('../helpers/jwt');
-const registerNotValidated = require('../helpers/validator');
+const { register: registerNotValidated } = require('../helpers/validator');
 
 const typeDefs = gql`
   type User {
@@ -13,6 +13,7 @@ const typeDefs = gql`
     nationalin: String
     birth_date: String
     gender: String
+    role: String
   }
   type Token {
     token: String
@@ -49,7 +50,7 @@ const resolvers = {
         const { id } = args;
         const user = await getUser(id);
         return user;
-      } catch(err) {
+      } catch (err) {
         return err;
       }
     }
@@ -58,15 +59,16 @@ const resolvers = {
     Register: async (_, args) => {
       try {
         const { payload } = args;
-        
-        if (registerNotValidated(payload)) {
-          return registerNotValidated(payload);
+        const data = { ...payload, role: "User" }
+
+        if (registerNotValidated(data)) {
+          return registerNotValidated(data);
         }
-        
-        const newUser = await register(payload);
+
+        const newUser = await register(data);
 
         return newUser.ops[0];
-      } catch(err) {
+      } catch (err) {
         return err;
       }
     },
@@ -84,7 +86,7 @@ const resolvers = {
             return { token };
           }
         }
-      } catch(err) {
+      } catch (err) {
         return err;
       }
     }

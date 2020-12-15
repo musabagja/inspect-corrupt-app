@@ -18,17 +18,7 @@ class Reports {
     return await reportsCollection.findOneAndUpdate({ "_id": ObjectID(id) },
       {
         $set: {
-          'case': payload.case,
-          'entity': payload.entity,
-          'province': payload.province,
-          'city': payload.city,
-          'dateHappened': payload.dateHappened,
-          'description': payload.description,
-          'isDocumentProvided': payload.isDocumentProvided,
-          'involvedPerson': payload.involvedPerson,
-          'personRole': payload.personRole,
-          'isReported': payload.isReported,
-          'isKeepInTouch': payload.isKeepInTouch,
+          'status': payload
         }
       }, { returnOriginal: false })
   }

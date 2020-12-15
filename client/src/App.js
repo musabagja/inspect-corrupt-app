@@ -4,7 +4,7 @@ import { ApolloProvider } from '@apollo/client';
 import client from './config/index';
 import { 
   HomePage, RegisterPage, LoginPage, TaxCredibilityPage, CasesOptionPage,
-  Report1, Report2, Report3, ReportFinish
+  Report1, Report2, Report3, ReportFinish, AdminReport
 } from './pages';
 import { Navbar } from './components';
 // import store from './store';
@@ -30,6 +30,10 @@ function App() {
               <Route path="/report/:report">
                 <Navbar/>
                 <Report1/>
+              </Route>
+              <Route path="/admin">
+                <Navbar/>
+                <AdminReport/>
               </Route>
               <Route path='/sign-in'>
                 <LoginPage/>

@@ -59,6 +59,7 @@ export default () => {
                   </div>
                   <div>
                     <p>{article?.judul}</p>
+
                   </div>
                 </div>
               ))}
