@@ -15,6 +15,14 @@
   font-weight: 1000;
 }
 
+.npwp-alert a {
+  padding-left: 13px;
+}
+
+.npwp-alert p {
+  padding-left: 23px;
+}
+
 .sweet-loading {
   align-self: center;
 }

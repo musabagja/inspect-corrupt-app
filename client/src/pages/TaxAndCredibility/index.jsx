@@ -4,13 +4,17 @@ import { gql, useMutation } from '@apollo/client';
 import { useHistory } from "react-router-dom";
 import ReactLoading from 'react-loading';
 import { css } from '@emotion/react';
-import ClipLoader from 'react-spinners/ClipLoader';
 
 const CREDIBILITY = gql`
   mutation Credibility($company: String) {
     credibility(company: $company) {
       kpbn
       indoInvestments
+      idx
+      npwp
+      email
+      telephone
+      address
     }
   }
 `;
@@ -83,62 +87,61 @@ export default function TaxAndCredibility() {
       }
     }).then(({ data }) => {
       const { credibility } = data;
-      if (credibility) {
-        console.log(credibility);
-      }
       console.log(credibility);
     })
   }
 
   return (
     // alert credibility
-    <div className="uk-container tax-credibility">
-      { successMessage ? 
-        <div className="uk-alert-success" uk-alert="true">
-          <a className="uk-alert-close" uk-close="true"></a>
-          <p>{ successMessage }</p>
-        </div>
-      :
-        ''
-      }
-      {
-        errorMessage ?
-          <div className="uk-alert-danger" uk-alert="true">
+    <React.Fragment>
+      <div className="uk-container tax-credibility">
+        { successMessage ? 
+          <div className="uk-alert-success npwp-alert" uk-alert="true">
             <a className="uk-alert-close" uk-close="true"></a>
-            <p>{ errorMessage }</p>
+            <p>{ successMessage }</p>
           </div>
         :
           ''
-      }
-      {loading && 
-        <div className="loading">
-          <ReactLoading type="spinningBubbles" color="#e74c3c"/>
-        </div>
-      }
-      <div className="uk-child-width-expand@s uk-text-center" uk-grid="true">
-        <div>
-            <h3>Tax Validator</h3>
-          <form onSubmit={onSubmitNpwp}>
-            <fieldset className="uk-fieldset">
-              <div className="uk-margin">
-                  <input name="npwp" value={npwp} onChange={onChangeNpwp} className="uk-input" type="text" placeholder="Insert your tax id"/>
-              </div>
+        }
+        {
+          errorMessage ?
+            <div className="uk-alert-danger npwp-alert" uk-alert="true">
+              <a className="uk-alert-close" uk-close="true"></a>
+              <p>{ errorMessage }</p>
+            </div>
+          :
+            ''
+        }
+        {loading && 
+          <div className="loading">
+            <ReactLoading type="spinningBubbles" color="#e74c3c"/>
+          </div>
+        }
+        <div className="uk-child-width-expand@s uk-text-center" uk-grid="true">
+          <div>
+              <h3>Tax Validator</h3>
+            <form onSubmit={onSubmitNpwp}>
+              <fieldset className="uk-fieldset">
+                <div className="uk-margin">
+                    <input name="npwp" value={npwp} onChange={onChangeNpwp} className="uk-input" type="text" placeholder="Insert your tax id"/>
+                </div>
+                <button type="submit" className="uk-button uk-button-default btn-submit">SUBMIT</button>
+              </fieldset>
+            </form>
+          </div>
+          <div>
+            <h3>Credibility</h3>
+            <form onSubmit={onSubmitCredibility}>
+              <fieldset className="uk-fieldset">
+                <div className="uk-margin">
+                    <input className="uk-input" name="company" value={company} onChange={onChange} type="text" placeholder="Insert company name"/>
+                </div>
+              </fieldset>
               <button type="submit" className="uk-button uk-button-default btn-submit">SUBMIT</button>
-            </fieldset>
-          </form>
-        </div>
-        <div>
-          <h3>Credibility</h3>
-          <form onSubmit={onSubmitCredibility}>
-            <fieldset className="uk-fieldset">
-              <div className="uk-margin">
-                  <input className="uk-input" name="company" value={company} onChange={onChange} type="text" placeholder="Insert company name"/>
-              </div>
-            </fieldset>
-            <button type="submit" className="uk-button uk-button-default btn-submit">SUBMIT</button>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </React.Fragment>
   )
 }
