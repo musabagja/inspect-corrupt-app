@@ -4,7 +4,7 @@ import { gql, useQuery } from '@apollo/client'
 const FETCH_REPORT = gql`
     query FetchReport {
         reports {
-            UserId
+            UserEmail
             case
             entity
             province
@@ -34,7 +34,9 @@ function AdminReport() {
     }
 
 
-    console.log(data.reports)
+
+
+    console.log(data.reports, "ini data report")
     return (
         <div class="uk-container uk-margin-large-top">
             <h2>Data of reported</h2>
@@ -42,7 +44,7 @@ function AdminReport() {
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>UserId</th>
+                        <th>UserEmail</th>
                         <th>Case</th>
                         <th>Entity</th>
                         <th>Province</th>
@@ -59,14 +61,14 @@ function AdminReport() {
 
                             <tr>
                                 <td>{i + 1}</td>
-                                <td>{el.UserId}</td>
+                                <td>{el.UserEmail}</td>
                                 <td>{el.case}</td>
                                 <td>{el.entity}</td>
                                 <td>{el.province}</td>
                                 <td>{el.city}</td>
                                 <td>{el.dateHappened}</td>
                                 <td>{el.description}</td>
-                                <td>{JSON.stringify(el.isKeepInTouch)}</td>
+                                <td>{el.isKeepInTouch === "true" ? "yes" : "no"}</td>
                             </tr>
                         )
                     })}
