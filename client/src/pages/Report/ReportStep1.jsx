@@ -15,8 +15,13 @@ export default function ReportStep1() {
   const history = useHistory()
 
   function handleNext() {
-    reportData1(data1)
-    history.push(`/report/${report}/2`)
+    if(data1.case && data1.entity && data1.province && data1.city) {
+      reportData1(data1)
+      history.push(`/report/${report}/2`)
+    }
+    else {
+      console.log("Gabisa next") // handle later
+    }
   }
 
   function handleChange(e) {

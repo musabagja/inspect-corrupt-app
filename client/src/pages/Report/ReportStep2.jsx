@@ -18,8 +18,13 @@ export default function ReportStep2() {
   })
   
   function handleNext() {
-    reportData2(data2)
-    history.push(`/report/${report}/3`)
+    if(data2.dateHappened && data2.description && data2.isDocumentProvided && data2.involvedPerson && data2.personRole && data2.isReported) {
+      reportData2(data2)
+      history.push(`/report/${report}/3`)
+    }
+    else {
+      console.log("Gabisa next, harus diisi semua")
+    }
   }
 
   function  handleChange(event) {
