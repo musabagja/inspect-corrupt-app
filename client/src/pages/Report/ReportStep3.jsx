@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom'
 import { reportData3 } from '../../config/index'
 import { gql, useMutation } from '@apollo/client';
@@ -25,6 +25,13 @@ function ReportStep3() {
       }
     }
   `
+
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+        history.push('/sign-in')
+        }
+    }, [])
 
   const history = useHistory()
   const { report } = useParams()

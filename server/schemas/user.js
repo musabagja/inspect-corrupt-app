@@ -17,6 +17,7 @@ const typeDefs = gql`
   }
   type Token {
     token: String
+    email: String
   }
   type Login {
     Login(payload: LoginUser!): Token
@@ -58,6 +59,7 @@ const resolvers = {
   Mutation: {
     Register: async (_, args) => {
       try {
+        console.log('sampe')
         const { payload } = args;
         const data = { ...payload, role: "User" }
 
@@ -82,8 +84,13 @@ const resolvers = {
           if (!compare(payload.password, user.password)) {
             return new Error({ message: 'Wrong Email/Password' })
           } else {
-            const token = jwtSign(user);
-            return { token };
+            console.log(user)
+            const token = jwtSign({
+              id: user._id,
+              email: user.email,
+              last_name: user.last_name
+            });
+            return { token, email: user.email };
           }
         }
       } catch (err) {
