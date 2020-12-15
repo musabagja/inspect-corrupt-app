@@ -2,9 +2,14 @@
   text-decoration: none;
 }
 
+.navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
 .navbar {
   background-color: #2C3E50;
-  position: absolute;
+  position: fixed;
   width: 100%;
   z-index: 20;
   top: 0;
@@ -16,5 +21,10 @@
 
 .navigation h3 {
   margin-top: 15px;
+  color: #ffffff;
+}
+
+.navigation h4 {
+  margin-top: 17px;
   color: #ffffff;
 }

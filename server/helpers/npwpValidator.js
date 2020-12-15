@@ -98,8 +98,8 @@ function npwpValidator(npwp) {
   }
 }
 
-const npwp = 958794455442000
+// const npwp = 958794455442000
 
-console.log(npwpValidator(npwp))
+// console.log(npwpValidator(npwp))
 
-module.exports = npwpValidator
+module.exports = npwpValidator;

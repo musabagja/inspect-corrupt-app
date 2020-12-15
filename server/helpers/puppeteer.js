@@ -2,7 +2,10 @@ const puppeteer = require('puppeteer');
 
   // Sample Prototype
 const checkCredible = async (search) => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({
+    executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
+    headless: true
+  }); // INI GANTI SESUAI LOKASI CHROME KALIAN
 
   const page = await browser.newPage();
 
@@ -44,14 +47,14 @@ const checkCredible = async (search) => {
   return {kpbn, indoInvestments};
 }
 
-const execute = async () => {
-  const kpbn = await checkCredible('abm investama');
-  const score = {
-    kpbn
-  }
-  console.log(score)
-}
+// const execute = async () => {
+//   const kpbn = await checkCredible('abm investama');
+//   const score = {
+//     score: kpbn
+//   }
+//   console.log(score)
+// }
 
-execute();
+// execute();
 
 module.exports = checkCredible;

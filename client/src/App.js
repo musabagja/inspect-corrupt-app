@@ -7,25 +7,28 @@ import {
   Report1, Report2, Report3, ReportFinish
 } from './pages';
 import { Navbar } from './components';
-import store from './store';
+// import store from './store';
 
 function App() {
   return (
     <div className="App">
       <ApolloProvider client={client}>
         <Router>
-            <Navbar/>
             <Switch>
               <Route path="/report/:report/2">
+                <Navbar/>
                 <Report2/>
               </Route>
               <Route path="/report/:report/3">
+                <Navbar/>
                 <Report3/>
               </Route>
               <Route path="/report/:report/4">
+                <Navbar/>
                 <ReportFinish/>
               </Route>
               <Route path="/report/:report">
+                <Navbar/>
                 <Report1/>
               </Route>
               <Route path='/sign-in'>
@@ -35,12 +38,15 @@ function App() {
                 <RegisterPage/>
               </Route>
               <Route path="/c">
+                <Navbar/>
                 <CasesOptionPage/>
               </Route>
               <Route path="/tax-and-credibility">
+                <Navbar/>
                 <TaxCredibilityPage/>
               </Route>
               <Route exact path="/">
+                <Navbar/>
                 <HomePage/>
               </Route>
             </Switch>
