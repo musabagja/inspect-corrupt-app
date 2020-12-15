@@ -7,7 +7,7 @@ import {
   Report1, Report2, Report3, ReportFinish
 } from './pages';
 import { Navbar } from './components';
-import store from './store';
+// import store from './store';
 
 function App() {
   return (
