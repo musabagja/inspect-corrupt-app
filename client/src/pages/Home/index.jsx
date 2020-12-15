@@ -3,6 +3,7 @@ import React, {useEffect, useState} from 'react';
 import { Link } from 'react-router-dom';
 import { gql, useQuery } from '@apollo/client';
 import ReactLoading from 'react-loading';
+import News from '../../components/News/index';
 
 const GET_NEW = gql`
   query News($q: String) {
@@ -17,7 +18,6 @@ const GET_NEW = gql`
 `;
 
 export default () => {
-  const [news, setNews] = useState([])
 
   const { data, loading, error } = useQuery(GET_NEW, {
     variables: {
@@ -33,6 +33,9 @@ export default () => {
     <React.Fragment>
       <section className="home-section">
         <div className="home-image"></div>
+          <div className="uk-container header-home">
+            <h1>Be The <span style={{color: '#4cd137', fontWeight: 700}}>Observers</span> Truth <span style={{color: '#4cd137', fontWeight: 700}}>With</span> Us</h1>
+          </div>
         <div className="home-container">
           <div className="uk-container">
             <div className="home-content">
@@ -44,25 +47,17 @@ export default () => {
                   <button className="uk-button ins-button">Report</button>
                 </Link>
               </div>
-              <h3>News</h3>
-              <div className="ez-liner"></div>
-              {loading && 
-                <div className="loading">
-                  <ReactLoading type="spinningBubbles" color="#e74c3c"/>
+              <div className="news">
+                <h3>News</h3>
+                <div className="ez-liner"></div>
+                {loading &&
+                    <ReactLoading type="spinningBubbles" color="#4cd137" className="loading"/>
+                }
+                <div className="news-container">
+                {data?.articles.map((article, index) => (
+                  <News key={index} article={article}/>
+                ))}
                 </div>
-              }
-              <div className="news-container">
-              {data?.articles.map((article, index) => (
-                <div key={index} className="news-content">
-                  <div>
-                    <img src={article.poster}/>
-                  </div>
-                  <div>
-                    <p>{article?.judul}</p>
-
-                  </div>
-                </div>
-              ))}
               </div>
             </div>
           </div>
