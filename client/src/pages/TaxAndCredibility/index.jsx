@@ -1,9 +1,7 @@
 import './tax.css';
 import React, { useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
-import { useHistory } from "react-router-dom";
 import ReactLoading from 'react-loading';
-import { css } from '@emotion/react';
 
 const CREDIBILITY = gql`
   mutation Credibility($company: String) {
@@ -27,16 +25,7 @@ const NPWP_VALIDATOR = gql`
   } 
 `;
 
-const override = css`
-  display: block;
-  margin: 0 auto;
-  border-color: red;
-  position: absolute;
-  margin-left: 34.5vw; 
-`; // Margin leftnya bisa diubah aja, niatnya mau ditengah posisi absolute
-
 export default function TaxAndCredibility() {
-  const history = useHistory();
   const [company, setCompany] = useState('');
   const [npwp, setNpwp] = useState('');
   const [errorMessage, setErrorMessage] = useState('');

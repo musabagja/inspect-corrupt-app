@@ -26,11 +26,11 @@
   text-align: left;
 }
 
-.uk-card {
+.card-register {
   background-color: #2C3E50;
 }
 
-.uk-card::after {
+.card-register::after {
   content: '';
   width: 100%;
   height: 100%;

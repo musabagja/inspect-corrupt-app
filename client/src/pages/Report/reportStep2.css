@@ -2,38 +2,14 @@
   font-family: 'Montserrat', sans-serif;
 }
 
-
 textarea {
   background-color: #B1B1B1;
 }
 
-.col-1-custom {
-  position: absolute;
-  width: 530px;
-  height: 56px;
-  left: 100px;
-  top: 100px;
+.report-step-2 {
+  margin-top: 150px;
 }
 
-.col-2-custom {
-  position: absolute;
-  width: 530px;
-  height: 56px;
-  right: 100px;
-  top: 100px;
-}
-
-.q-2-sect {
-  position: absolute;
-  top: 110px;
-}
-
-.btn-custom-1 {
-  position: absolute;
-  width: 138px;
-  height: 30px;
-  top: 610px;
-  font-size: 14px;
-  background-color: #2C3E50;
-  color: #ffffff;
+.side-right {
+  margin-left: 100px;
 }

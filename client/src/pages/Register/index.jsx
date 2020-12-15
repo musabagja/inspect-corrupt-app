@@ -11,8 +11,7 @@ export default function RegisterPage() {
                 <h1>INSPECT</h1>
                 <p>We’ll be watching you</p>
             </div>
-            <div className="card-login">
-              <div className="uk-card uk-card-default uk-card-body">
+              <div className="uk-card uk-card-default uk-card-body card-register">
                 <form>
                   <fieldset className="uk-fieldset">
                   <legend className="uk-legend">SIGN UP</legend>
@@ -48,7 +47,6 @@ export default function RegisterPage() {
                   </fieldset>
                 </form>
               </div>
-            </div>
           </div>
         </div>
       </div>
