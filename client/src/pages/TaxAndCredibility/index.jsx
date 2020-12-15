@@ -148,9 +148,12 @@ export default function TaxAndCredibility() {
                 <div className="uk-margin">
                     <input name="npwp" value={npwp} onChange={onChangeNpwp} className="uk-input" type="text" placeholder="Insert your tax id"/>
                 </div>
-                <button type="submit" className="uk-button uk-button-default btn-submit">SUBMIT</button>
+                <button type="submit" className="uk-button uk-button-default btn-next">SUBMIT</button>
               </fieldset>
             </form>
+            <article class="uk-article" style={{marginTop: 50}}>
+              <p class="uk-article-meta" style={{fontSize: 18, fontWeight: 700}}>is to check your tax id is valid or not</p>
+            </article>
           </div>
           <div>
             <h3>Credibility</h3>
@@ -160,8 +163,11 @@ export default function TaxAndCredibility() {
                     <input className="uk-input" name="company" value={company} onChange={onChange} type="text" placeholder="Insert company name"/>
                 </div>
               </fieldset>
-              <button type="submit" className="uk-button uk-button-default btn-submit">SUBMIT</button>
+              <button type="submit" className="uk-button uk-button-default btn-next">SUBMIT</button>
             </form>
+            <article class="uk-article" style={{marginTop: 50}}>
+              <p class="uk-article-meta" style={{fontSize: 18, fontWeight: 700}}>to check the credibility of your company</p>
+            </article>
           </div>
         </div>
       </div>
