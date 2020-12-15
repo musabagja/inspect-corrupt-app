@@ -5,30 +5,35 @@ import { Link } from 'react-router-dom';
 export default () => {
   return (
     <React.Fragment>
-      <div className="home-image"></div>
-      <div className="home-container">
-        <div className="uk-container">
-          <div className="home-content">
-            <div className="action-buttons">
-              <Link to="/tax-and-credibility">
-                <button className="uk-button ins-button">Credibility</button>
-              </Link>
-              <button className="uk-button ins-button">Report</button>
-              <button className="uk-button ins-button">TAX-ID</button>
-            </div>
-            <h3>News</h3>
-            <div className="ez-liner"></div>
-            <div className="news-container">
-              <div className="news-content uk-card-hover">
-                <img src="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"/>
-                <div className="uk-card uk-card-default uk-card-hover uk-card-body">
-                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+      <section className="home-section">
+        <div className="home-image"></div>
+        <div className="home-container">
+          <div className="uk-container">
+            <div className="home-content">
+              <div className="action-buttons">
+                <Link to="/tax-and-credibility">
+                  <button className="uk-button ins-button">Inspect</button>
+                </Link>
+                <Link to="/c">
+                  <button className="uk-button ins-button">Report</button>
+                </Link>
+              </div>
+              <h3>News</h3>
+              <div className="ez-liner"></div>
+              <div className="news-container">
+                <div className="news-content">
+                  <div>
+                    <img src="https://images.unsplash.com/photo-1585829365295-ab7cd400c167?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80"/>
+                  </div>
+                  <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </section>
     </React.Fragment>
   )
 }

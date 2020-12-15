@@ -26,12 +26,16 @@ const override = css`
   display: block;
   margin: 0 auto;
   border-color: red;
-`;
+  position: absolute;
+  margin-left: 34.5vw; 
+`; // Margin leftnya bisa diubah aja, niatnya mau ditengah posisi absolute
 
 export default function TaxAndCredibility() {
   const history = useHistory();
   const [company, setCompany] = useState('');
   const [npwp, setNpwp] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   function onChange(e) {
     const value = e.target.value;
@@ -44,8 +48,8 @@ export default function TaxAndCredibility() {
     setNpwp(value);
   }
 
-  const [credibility, {loading, error, data}] = useMutation(CREDIBILITY);
-  const [npwpValidator, {loading: npwpLoading, error: npwpError, data: npwpData}] = useMutation(NPWP_VALIDATOR);
+  const [credibility, { loading, error, data }] = useMutation(CREDIBILITY);
+  const [npwpValidator, { loading: npwpLoading, error: npwpError, data: npwpData }] = useMutation(NPWP_VALIDATOR);
 
   function onSubmitNpwp(e) {
     e.preventDefault();
@@ -56,7 +60,14 @@ export default function TaxAndCredibility() {
         number: npwp
       }
     }).then(({ data }) => {
-      console.log(data);
+      if (data.npwp.npwpIsValid) {
+        setSuccessMessage('Tax ID is valid');
+        setErrorMessage('');
+      } else {
+        setErrorMessage('Tax ID is invalid');
+        setSuccessMessage('');
+      }
+      console.log(data.npwp.npwpIsValid);
     })
   }
 
@@ -71,40 +82,30 @@ export default function TaxAndCredibility() {
       if (credibility) {
         console.log(credibility);
       }
+      console.log(credibility);
     })
   }
 
   return (
     // alert credibility
     <div className="uk-container tax-credibility">
-      { data !== undefined && data?.credibility.kpbn === true || data?.credibility.indoInvestments === true &&
-        <div className="uk-alert-success" uk-alert>
-          <a className="uk-alert-close" uk-close></a>
-          <p>This company has intermediate credibility</p>
+      { successMessage ? 
+        <div className="uk-alert-success" uk-alert="true">
+          <a className="uk-alert-close" uk-close="true"></a>
+          <p>{ successMessage }</p>
         </div>
+      :
+        ''
       }
-      { data !== undefined && data?.credibility.kpbn === false && data?.credibility.indoInvestments === false &&
-        <div className="uk-alert-success" uk-alert>
-          <a className="uk-alert-close" uk-close></a>
-          <p>Company credibility less</p>
-        </div>
+      {
+        errorMessage ?
+          <div className="uk-alert-danger" uk-alert="true">
+            <a className="uk-alert-close" uk-close="true"></a>
+            <p>{ errorMessage }</p>
+          </div>
+        :
+          ''
       }
-
-      {/* alert tax validator */}
-      { npwpData !== undefined && npwpData?.npwp.npwpIsValid === false &&
-        <div className="uk-alert-success" uk-alert>
-          <a className="uk-alert-close" uk-close></a>
-          <p>Your tax ID is invalid</p>
-        </div>
-      
-      }
-      { npwpData !== undefined && npwpData?.npwp.npwpIsValid === true &&
-        <div className="uk-alert-success" uk-alert>
-          <a className="uk-alert-close" uk-close></a>
-          <p>Your tax ID is valid</p>
-        </div>
-      }
-
       {loading && <div className="sweet-loading">
         <ClipLoader
           css={override}
@@ -113,7 +114,7 @@ export default function TaxAndCredibility() {
         />
       </div>
       }
-      <div className="uk-child-width-expand@s uk-text-center" uk-grid>
+      <div className="uk-child-width-expand@s uk-text-center" uk-grid="true">
         <div>
             <h3>Tax Validator</h3>
           <form onSubmit={onSubmitNpwp}>
