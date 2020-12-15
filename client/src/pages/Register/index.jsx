@@ -88,7 +88,7 @@ export default function RegisterPage() {
                           <input className="uk-input" name="email" onChange={ (e) => handleInputChange(e.target) } value={ inputRegister.email } type="text" placeholder="Email"/>
                       </div>
                       <div className="uk-margin">
-                          <input className="uk-input" name="password" onChange={ (e) => handleInputChange(e.target) } value={ inputRegister.password } type="text" placeholder="Password"/>
+                          <input className="uk-input" name="password" onChange={ (e) => handleInputChange(e.target) } value={ inputRegister.password } type="password" placeholder="Password"/>
                       </div>
                       <div className="uk-margin">
                           <input className="uk-input" name="nationalin" onChange={ (e) => handleInputChange(e.target) } value={ inputRegister.nationalin } type="text" placeholder="Nationalist"/>

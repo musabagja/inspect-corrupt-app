@@ -72,7 +72,7 @@ export default function LoginPage() {
                         <input name="email" onChange={ (e) => handleInputChange(e.target) } value={ loginInput.email } className="uk-input" type="text" placeholder="Email"/>
                     </div>
                     <div className="uk-margin">
-                        <input name="password" onChange={ (e) => handleInputChange(e.target) } value={ loginInput.password } className="uk-input input-password" type="text" placeholder="Password"/>
+                        <input name="password" onChange={ (e) => handleInputChange(e.target) } value={ loginInput.password } className="uk-input input-password" type="password" placeholder="Password"/>
                     </div>
                     <button type="submit" className="uk-button uk-button-default btn-sign-in">SIGN IN</button>
                   </fieldset>
