@@ -1,7 +1,9 @@
 import './tax.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
 import { useHistory } from "react-router-dom";
+import { css } from '@emotion/core';
+import ClipLoader from 'react-spinners/ClipLoader';
 
 const CREDIBILITY = gql`
   mutation Credibility($company: String) {
@@ -18,6 +20,12 @@ const NPWP_VALIDATOR = gql`
       npwpIsValid
     }
   } 
+`;
+
+const override = css`
+  display: block;
+  margin: 0 auto;
+  border-color: red;
 `;
 
 export default function TaxAndCredibility() {
@@ -37,7 +45,7 @@ export default function TaxAndCredibility() {
   }
 
   const [credibility, {loading, error, data}] = useMutation(CREDIBILITY);
-  const [npwpValidator, {loading: npwpLoading, error: npwpError}] = useMutation(NPWP_VALIDATOR);
+  const [npwpValidator, {loading: npwpLoading, error: npwpError, data: npwpData}] = useMutation(NPWP_VALIDATOR);
 
   function onSubmitNpwp(e) {
     e.preventDefault();
@@ -67,12 +75,43 @@ export default function TaxAndCredibility() {
   }
 
   return (
+    // alert credibility
     <div className="uk-container tax-credibility">
-      { data !== undefined && 
+      { data !== undefined && data?.credibility.kpbn === true || data?.credibility.indoInvestments === true &&
         <div className="uk-alert-success" uk-alert>
           <a className="uk-alert-close" uk-close></a>
-          <p>Success</p>
+          <p>This company has intermediate credibility</p>
         </div>
+      }
+      { data !== undefined && data?.credibility.kpbn === false && data?.credibility.indoInvestments === false &&
+        <div className="uk-alert-success" uk-alert>
+          <a className="uk-alert-close" uk-close></a>
+          <p>Company credibility less</p>
+        </div>
+      }
+
+      {/* alert tax validator */}
+      { npwpData !== undefined && npwpData?.npwp.npwpIsValid === false &&
+        <div className="uk-alert-success" uk-alert>
+          <a className="uk-alert-close" uk-close></a>
+          <p>Your tax ID is invalid</p>
+        </div>
+      
+      }
+      { npwpData !== undefined && npwpData?.npwp.npwpIsValid === true &&
+        <div className="uk-alert-success" uk-alert>
+          <a className="uk-alert-close" uk-close></a>
+          <p>Your tax ID is valid</p>
+        </div>
+      }
+
+      {loading && <div className="sweet-loading">
+        <ClipLoader
+          css={override}
+          size={150}
+          color={"#123abc"}
+        />
+      </div>
       }
       <div className="uk-child-width-expand@s uk-text-center" uk-grid>
         <div>
