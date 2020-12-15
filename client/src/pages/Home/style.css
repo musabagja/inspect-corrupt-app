@@ -180,6 +180,5 @@
 }
 
 .loading {
-  position: absolute;
-  align-items: center;
+  margin-left: 50%;
 }
