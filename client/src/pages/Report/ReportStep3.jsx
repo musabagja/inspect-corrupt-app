@@ -5,9 +5,11 @@ import { reportData3 } from '../../config/index'
 import { gql, useMutation } from '@apollo/client';
 import { reportData1, reportData2 } from '../../config/index'
 function ReportStep3() {
-
     const history = useHistory()
     const { report } = useParams()
+    const data1cache = reportData1()
+    const data2cache = reportData2()
+    const [addReport] = useMutation(MAKE_REPORT)
 
     const [data3, setData3] = useState({
         isKeepInTouch: '',
@@ -58,18 +60,6 @@ function ReportStep3() {
             [name]: value
         });
     }
-  const data1cache = reportData1()
-  const data2cache = reportData2()
-
-
-  const history = useHistory()
-  const { report } = useParams()
-  const [addReport] = useMutation(MAKE_REPORT)
-
-  const [data3, setData3] = useState({
-    isKeepInTouch: '',
-    aboutInspectApp: ''
-  })
 
   function handleNext() {
     const payload = { ...data1cache, ...data2cache, ...data3 }

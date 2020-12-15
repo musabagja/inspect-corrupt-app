@@ -4,7 +4,12 @@ const checkCredible = require('../helpers/puppeteer');
 const typeDefs = gql`
   type Credibility {
     kpbn: Boolean,
-    indoInvestments: Boolean
+    indoInvestments: Boolean,
+    idx: Boolean,
+    npwp: String,
+    email: String,
+    telephone: String,
+    address: String
   }
 
   extend type Mutation {
