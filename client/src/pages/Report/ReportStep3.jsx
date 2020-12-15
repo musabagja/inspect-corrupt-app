@@ -23,6 +23,10 @@ function ReportStep3() {
             ...data3,
             [name]: value
         })
+        console.log({
+            ...data3,
+            [name]: value
+        });
     }
 
     // const ADD_REPORT = gql`
@@ -80,6 +84,7 @@ function ReportStep3() {
                                 name="isKeepInTouch" /> Yes, please keep in touch with me</label>
                         <label>
                             <input
+                                onChange={(event) => handleChange(event)}
                                 value="false"
                                 class="uk-radio"
                                 type="radio"

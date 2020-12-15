@@ -53,16 +53,22 @@
 .news-container {
   display: flex;
   flex-wrap: wrap;
+  width: 100%;
 }
 
 .news-content {
   display: flex;
   flex-direction: column;
   margin: 11.5px;
+  align-items: center;
   width: 48%;
 }
 
 .news-content img {
   width: 100%;
   height: 300px;
+}
+
+.news-content div {
+  width: 100%;
 }
