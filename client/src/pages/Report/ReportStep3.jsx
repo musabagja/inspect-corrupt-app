@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom'
-import { reportData3 } from '../../config/index'
+import { reportData1, reportData2, reportData3 } from '../../config/index'
 
 function ReportStep3() {
 
@@ -11,6 +11,10 @@ function ReportStep3() {
         isKeepInTouch: '',
         aboutInspectApp: ''
     })
+
+    console.log(reportData1(), "INI REPORT DATA 1")
+    console.log(reportData2(), "INI REPORT DATA 2")
+    console.log(reportData3(), "INI REPORT DATA 3")
 
     function handleNext() {
         reportData3(data3)

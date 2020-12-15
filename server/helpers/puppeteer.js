@@ -3,7 +3,6 @@ const puppeteer = require('puppeteer');
   // Sample Prototype
 const checkCredible = async (search) => {
   const browser = await puppeteer.launch({
-    executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
     headless: true
   }); // INI GANTI SESUAI LOKASI CHROME KALIAN
 
