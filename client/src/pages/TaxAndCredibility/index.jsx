@@ -41,9 +41,7 @@ export default function TaxAndCredibility() {
   const [npwp, setNpwp] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
-  const [kbpn, setKbpn] = useState(true);
-  const [indoInvestments, setIndoInvestments] = useState(true);
-  const [idx, setIdx] = useState(true);
+  const [credibilityResult, setCredibilityResult] = useState('');
 
   function onChange(e) {
     const value = e.target.value;
@@ -75,6 +73,10 @@ export default function TaxAndCredibility() {
         setErrorMessage('Tax ID is invalid');
         setSuccessMessage('');
       }
+      setTimeout(() => {
+        setSuccessMessage('');
+        setErrorMessage('');
+      }, 5000)
       console.log(data.npwp.npwpIsValid);
     })
   }
@@ -87,6 +89,11 @@ export default function TaxAndCredibility() {
       }
     }).then(({ data }) => {
       const { credibility } = data;
+      console.log(credibility)
+      setCredibilityResult(credibility);
+      // setTimeout(() => {
+      //   setCredibilityResult('');
+      // }, 5000)
       console.log(credibility);
     })
   }
@@ -95,9 +102,36 @@ export default function TaxAndCredibility() {
     // alert credibility
     <React.Fragment>
       <div className="uk-container tax-credibility">
+        { credibilityResult ? 
+          <div className="uk-alert-success npwp-alert" uk-alert="true">
+            <ul>
+              { credibilityResult.kpbn ? 
+                <li>Listed on <a target="_blank" href="https://kpbn.co.id/persh.php?alphabet=a">KPBN</a></li>
+              :
+                <li>Not listed on <a target="_blank" href="https://kpbn.co.id/persh.php?alphabet=a">KPBN</a></li>
+              }
+              { credibilityResult.indoInvestments ? 
+                <li>Listed on <a target="_blank" href="https://kpbn.co.id/persh.php?alphabet=a">Indonesia Investments</a></li>
+              :
+                <li>Not listed on <a target="_blank" href="https://kpbn.co.id/persh.php?alphabet=a">Indonesia Investments</a></li>
+              }
+              { credibilityResult.idx ? 
+                <li>Listed on <a target="_blank" href="https://www.idx.co.id/perusahaan-tercatat/profil-perusahaan-tercatat/">IDX</a></li>
+              :
+                <li>Not listed on <a target="_blank" href="https://www.idx.co.id/perusahaan-tercatat/profil-perusahaan-tercatat/">IDX</a></li>
+              }
+              <li>NPWP: { credibilityResult.npwp }</li>
+              <li>Email Addres: { credibilityResult.email }</li>
+              <li>Telephone: { credibilityResult.telephone }</li>
+              <li>Address: { credibilityResult.address }</li>
+            </ul>
+          </div>
+        :
+          ''
+        }
         { successMessage ? 
           <div className="uk-alert-success npwp-alert" uk-alert="true">
-            <a className="uk-alert-close" uk-close="true"></a>
+            {/* <a className="uk-alert-close" uk-close="true"></a> */}
             <p>{ successMessage }</p>
           </div>
         :
@@ -106,7 +140,7 @@ export default function TaxAndCredibility() {
         {
           errorMessage ?
             <div className="uk-alert-danger npwp-alert" uk-alert="true">
-              <a className="uk-alert-close" uk-close="true"></a>
+              {/* <a className="uk-alert-close" uk-close="true"></a> */}
               <p>{ errorMessage }</p>
             </div>
           :
