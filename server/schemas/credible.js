@@ -7,13 +7,13 @@ const typeDefs = gql`
     indoInvestments: Boolean
   }
 
-  extend type Query {
+  extend type Mutation {
     credibility(company: String) : Credibility
   }
 `;
 
 const resolvers = {
-  Query : {
+  Mutation: {
     credibility: async (_, args) => {
       try {
         const { company } = args;

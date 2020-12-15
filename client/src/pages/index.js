@@ -1,7 +1,7 @@
 export { default as CasesOptionPage } from './CasesOption';
 export { default as HomePage } from './Home';
-export { default as LoginPage } from './Login';
-export { default as RegisterPage } from './Register';
+export { default as LoginPage } from './login';
+export { default as RegisterPage } from './register';
 export { default as TaxCredibilityPage } from './TaxAndCredibility';
 
 export { default as Report1 } from './Report/ReportStep1';
