@@ -21,24 +21,18 @@
   padding-right: 20px;
   width: 800px;
   top: 100px;
-  left: 23%;
+  left: 30%;
 }
 
 .npwp-alert {
   position: absolute;
-  height: 200px;
-  width: 400px;
   margin-top: -100px;
-  left: 36%;
-}
-
-.npwp-alert a {
-  padding-left: 13px;
+  margin-left: 25%;
 }
 
 .npwp-alert p {
+  font-weight: 900;
   padding-left: 23px;
-  margin-top: 23%;
 }
 
 .sweet-loading {
@@ -52,6 +46,10 @@
 }
 
 .main-content-tax {
-  margin-top: 200px;
-  /* position: absolute; */
+  margin-top: 100px;
 }
+
+.uk-alert-success, .uk-alert-danger {
+  position: absolute;
+}
+

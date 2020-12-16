@@ -48,6 +48,7 @@ function App() {
               <Route exact path="/">
                 <Navbar/>
                 <HomePage/>
+                <Footer/>
               </Route>
               <Route path='/sign-in'>
                 <LoginPage/>
