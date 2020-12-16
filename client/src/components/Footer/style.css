@@ -3,6 +3,8 @@
   height: 200px;
   background-color: #2C3E50;
   bottom: 0;
+  margin-top: 200px;
+  z-index: 999;
 }
 
 .footer h5, .footer p, .footer ul {

@@ -12,11 +12,11 @@ function ReportFinish() {
   }, [])
 
   return (
-    <div className="uk-container uk-margin-xlarge-top">
+    <div className="uk-container uk-margin-xlarge-top finish-report">
       <div className="uk-flex uk-height-medium uk-background-muted uk-margin uk-text-center">
         <div className="uk-margin-auto uk-margin-auto-vertical uk-width-1-2@s uk-card uk-card-default uk-card-body">
-          <h3 style={{color: "white"}}>SUBMIT SUCCESS</h3>
-          <p style={{color: "white"}}>Thank you for your report we’ll follow up soon</p>
+          <h1 style={{color: '#4cd137'}}>SUBMIT SUCCESS</h1>
+          <p>Thank you for your report we’ll follow up soon</p>
         </div>
       </div>
     </div>

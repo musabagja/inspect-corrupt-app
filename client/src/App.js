@@ -21,10 +21,12 @@ function App() {
               <Route path="/report/:report/">
                 <Navbar />
                 <MainReport/>
+                <Footer/>
               </Route>
               <Route path="/report-finish">
                 <Navbar />
                 <ReportFinish />
+                <Footer/>
               </Route>
               {/* <Route path="/report/:report/3">
                 <Navbar />
@@ -41,10 +43,12 @@ function App() {
               <Route path="/c">
                 <Navbar />
                 <CasesOptionPage />
+                <Footer/>
               </Route>
               <Route path="/tax-and-credibility">
                 <Navbar />
                 <TaxCredibilityPage />
+                <Footer/>
               </Route>
               <Route exact path="/">
                 <Navbar/>

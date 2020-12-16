@@ -1,5 +1,6 @@
 .report-step-1{
   margin-top: 150px;
+  text-align: left;
 }
 
 h2 {
@@ -39,31 +40,44 @@ select {
   background-color: #e9e9e9;
 }
 
-.btn-next {
-  background-color: #2C3E50;
+.form-carousel__nav-container button {
   position: relative;
+  text-transform: uppercase;
+  border-radius: 0;
+  background-color: #2C3E50;
   color:#4cd137;
   font-weight: bolder;
   letter-spacing: 10px;
   height: 50px;
   width: 200px;
-  transition: .5s;
-  margin-top: 50px;
-}
+  padding: 10px;
+  border: none;
+} 
 
-.btn-next:hover {
+.form-carousel__nav-container button:hover {
   background-color: #4cd137;
   color: #FFFFFF;
+  border: 0;
 }
 
-.btn-next::before {
+.form-carousel__nav-container button::after {
   content: '';
   display: block;
   position: absolute;
-  top: 5px;
-  left: 5px;
-  width: 200px;
-  height: 50px;
-  border: 2px solid #4cd137;
-  z-index: -99;
+  top: 40px;
+  left: 25%;
+  width: 100px;
+  height: 20px;
+  background-color: #2C3E50;
+  filter: blur(15px);
+  z-index: -1;
+  border: none;
+}
+
+.form-carousel__container {
+  border: none;
+}
+
+.finish-report {
+  height: 43vh;
 }

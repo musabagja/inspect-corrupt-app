@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './reportStep1.css';
 
 export default function Report1(props) {
 
@@ -6,7 +7,7 @@ export default function Report1(props) {
   return (
     <>
       <div className="uk-container report-step-1">
-        <div className="uk-flex">
+        <div className="uk-flex uk-flex-between">
           <div>
             <h2 className="q1-custom">SELECT THE KIND OF ENTITY INVOLVED IN THE INCIDENT</h2>
             <hr />

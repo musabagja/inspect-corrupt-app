@@ -102,7 +102,7 @@ export default function MainReport() {
 
   return (
     <>
-      <Form onSubmit={e => onSubmit(e)} navigation autoHeight>
+      <Form onSubmit={e => onSubmit(e)} navigation>
         <Page>
           <Report1
             handleChange={handleChange}
