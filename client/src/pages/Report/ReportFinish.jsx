@@ -6,7 +6,7 @@ function ReportFinish() {
 
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) {
+    if (!token) {
       history.push('/sign-in');
     }
   }, [])

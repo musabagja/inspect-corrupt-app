@@ -6,6 +6,7 @@ import ReactLoading from 'react-loading';
 const CREDIBILITY = gql`
   mutation Credibility($company: String) {
     credibility(company: $company) {
+      name
       kpbn
       indoInvestments
       idx
@@ -13,6 +14,7 @@ const CREDIBILITY = gql`
       email
       telephone
       address
+      score
     }
   }
 `;
@@ -58,9 +60,11 @@ export default function TaxAndCredibility() {
       if (data.npwp.npwpIsValid) {
         setSuccessMessage('Tax ID is valid');
         setErrorMessage('');
+        setCredibilityResult('');
       } else {
         setErrorMessage('Tax ID is invalid');
         setSuccessMessage('');
+        setCredibilityResult('');
       }
       setTimeout(() => {
         setSuccessMessage('');
@@ -80,6 +84,8 @@ export default function TaxAndCredibility() {
       const { credibility } = data;
       console.log(credibility)
       setCredibilityResult(credibility);
+      setSuccessMessage('');
+      setErrorMessage('');
       // setTimeout(() => {
       //   setCredibilityResult('');
       // }, 5000)
@@ -91,9 +97,14 @@ export default function TaxAndCredibility() {
     // alert credibility
     <React.Fragment>
       <div className="uk-container tax-credibility">
-        { credibilityResult ? 
-          <div className="uk-alert-success npwp-alert" uk-alert="true">
+        { credibilityResult && !loading ?
+          <div className="uk-alert-success credibility-alert" uk-alert="true">
             <ul>
+              { credibilityResult.name ? 
+                <li>Company Name: { credibilityResult.name }</li>
+              :
+                ''
+              }
               { credibilityResult.kpbn ? 
                 <li>Listed on <a target="_blank" href="https://kpbn.co.id/persh.php?alphabet=a">KPBN</a></li>
               :
@@ -140,7 +151,7 @@ export default function TaxAndCredibility() {
             <ReactLoading type="spinningBubbles" color="#e74c3c"/>
           </div>
         }
-        <div className="uk-child-width-expand@s uk-text-center" uk-grid="true">
+        <div className="uk-child-width-expand@s uk-text-center main-content-tax" uk-grid="true">
           <div>
               <h3>Tax Validator</h3>
             <form onSubmit={onSubmitNpwp}>

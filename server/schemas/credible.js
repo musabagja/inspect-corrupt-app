@@ -3,13 +3,15 @@ const checkCredible = require('../helpers/puppeteer');
 
 const typeDefs = gql`
   type Credibility {
+    name: String,
     kpbn: Boolean,
     indoInvestments: Boolean,
     idx: Boolean,
     npwp: String,
     email: String,
     telephone: String,
-    address: String
+    address: String,
+    score: Float
   }
 
   extend type Mutation {

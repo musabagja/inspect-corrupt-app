@@ -4,10 +4,12 @@ import { reportData1 } from '../../config'
 import './reportStep1.css'
 
 export default function ReportStep1() {
+  const [token, setToken] = useState('')
 
   useEffect(() => {
-    const token = localStorage.getItem('token');
-    if (token) {
+    const getToken = localStorage.getItem('token');
+    if (!getToken) {
+      setToken(getToken)
       history.push('/sign-in')
     }
   }, [])
@@ -38,7 +40,7 @@ export default function ReportStep1() {
       [name]: value
     })
   }
-
+  
   return (
     <>
       <div className="uk-container report-step-1">

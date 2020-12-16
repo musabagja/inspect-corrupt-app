@@ -74,6 +74,7 @@ export default function LoginPage() {
                         <input name="password" onChange={ (e) => handleInputChange(e.target) } value={ loginInput.password } className="uk-input input-password" type="password" placeholder="Password"/>
                     </div>
                     <button type="submit" className="uk-button uk-button-default btn-sign-in">SIGN IN</button>
+                    <button onClick={ () => { history.push('/') } }>Back</button>
                   </fieldset>
                 </form>
               </div>

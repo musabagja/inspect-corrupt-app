@@ -3,7 +3,9 @@ const axios = require('axios');
 
   // Sample Prototype
 const checkCredible = async (search) => {
+  let scoreTotal = 0;
   const browser = await puppeteer.launch({
+    executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
     headless: true
   }); // INI GANTI SESUAI LOKASI CHROME KALIAN
 
@@ -49,6 +51,7 @@ const checkCredible = async (search) => {
     url: `https://www.idx.co.id/umbraco/Surface/ListedCompany/GetCompanyProfiles?emitenType=s&kodeEmiten=${ encodeURI(search[0]) }&draw=6&columns%5B0%5D%5Bdata%5D=KodeEmiten&columns%5B0%5D%5Bname%5D=&columns%5B0%5D%5Bsearchable%5D=true&columns%5B0%5D%5Borderable%5D=false&columns%5B0%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B0%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B1%5D%5Bdata%5D=KodeEmiten&columns%5B1%5D%5Bname%5D=&columns%5B1%5D%5Bsearchable%5D=true&columns%5B1%5D%5Borderable%5D=false&columns%5B1%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B1%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B2%5D%5Bdata%5D=NamaEmiten&columns%5B2%5D%5Bname%5D=&columns%5B2%5D%5Bsearchable%5D=true&columns%5B2%5D%5Borderable%5D=false&columns%5B2%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B2%5D%5Bsearch%5D%5Bregex%5D=false&columns%5B3%5D%5Bdata%5D=TanggalPencatatan&columns%5B3%5D%5Bname%5D=&columns%5B3%5D%5Bsearchable%5D=true&columns%5B3%5D%5Borderable%5D=false&columns%5B3%5D%5Bsearch%5D%5Bvalue%5D=&columns%5B3%5D%5Bsearch%5D%5Bregex%5D=false&start=0&length=109&search%5Bvalue%5D=&search%5Bregex%5D=false&_=1607953161948`
   })
 
+  let name = '-';
   let idxFlag = false;
   let npwp = '-';
   let email = '-';
@@ -57,35 +60,48 @@ const checkCredible = async (search) => {
 
   data.data.forEach(el => {
     if (el.NamaEmiten.toLowerCase().includes(search)) {
+      name = el.NamaEmiten
       idxFlag = true;
       if (el.NPWP) {
         npwp = el.NPWP;
+        scoreTotal += 14.3;
       }
       if (el.Email) {
         email = el.Email;
+        scoreTotal += 14.3;
       }
       if (el.Telepon) {
         telephone = el.Telepon
+        scoreTotal += 14.3;
       }
       if (el.Alamat) {
         address = el.Alamat
+        scoreTotal += 14.2;
       }
     }
   });
 
   await browser.close();
+  console.log(scoreTotal)
+  
+  if (indoInvestments) {
+    scoreTotal += 14.3;
+  }
+  if (kpbn) {
+    scoreTotal += 14.3;
+  }
 
-  return { kpbn, indoInvestments, idx: idxFlag, npwp, email, telephone, address };
+  return { score: scoreTotal, name, kpbn, indoInvestments, idx: idxFlag, npwp, email, telephone, address };
 }
 
-// const execute = async () => {
-//   const kpbn = await checkCredible('abm investama');
-//   const score = {
-//     score: kpbn
-//   }
-//   console.log(score)
-// }
+const execute = async () => {
+  const kpbn = await checkCredible('abm investama');
+  const score = {
+    score: kpbn
+  }
+  console.log(score)
+}
 
-// execute();
+execute();
 
 module.exports = checkCredible;

@@ -51,7 +51,7 @@ export default () => {
                 <h3>News</h3>
                 <div className="ez-liner"></div>
                 {loading &&
-                    <ReactLoading type="spinningBubbles" color="#4cd137" className="loading"/>
+                  <ReactLoading type="spinningBubbles" color="#4cd137" className="loading"/>
                 }
                 <div className="news-container">
                 {data?.articles.map((article, index) => (

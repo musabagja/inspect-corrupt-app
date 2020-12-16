@@ -23,7 +23,13 @@ const resolvers = {
                     url: `https://www.news.developeridn.com/search/?q=${q}`,
                     method: "GET",
                 })
-                return response.data.data;
+                if (response.data.data.length % 2 === 0) {
+                    return response.data.data;
+                } else {
+                    response.data.data.pop();
+                    return response.data.data
+                }
+                
             } catch (error) {
                 throw error;
             }
