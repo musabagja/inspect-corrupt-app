@@ -7,10 +7,12 @@ import {
   Report1, Report2, Report3, ReportFinish, AdminReport
 } from './pages';
 import { Navbar } from './components';
+import Footer from './components/Footer/index';
 // import store from './store';
 
 function App() {
   return (
+    <>
     <div className="App">
       <ApolloProvider client={client}>
         <Router>
@@ -35,12 +37,6 @@ function App() {
                 <Navbar/>
                 <AdminReport/>
               </Route>
-              <Route path='/sign-in'>
-                <LoginPage/>
-              </Route>
-              <Route path='/sign-up'>
-                <RegisterPage/>
-              </Route>
               <Route path="/c">
                 <Navbar/>
                 <CasesOptionPage/>
@@ -53,10 +49,17 @@ function App() {
                 <Navbar/>
                 <HomePage/>
               </Route>
+              <Route path='/sign-in'>
+                <LoginPage/>
+              </Route>
+              <Route path='/sign-up'>
+                <RegisterPage/>
+              </Route>
             </Switch>
         </Router>
       </ApolloProvider>
     </div>
+    </>
   );
 }
 

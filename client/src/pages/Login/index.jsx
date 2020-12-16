@@ -59,7 +59,6 @@ export default function LoginPage() {
                 <h1>INSPECT</h1>
                 <p>We’ll be watching you</p>
             </div>
-            <div className="card-login">
               <div className="uk-card uk-card-default uk-card-body card-login">
                 <form onSubmit={ handleLogin }>
                   <fieldset className="uk-fieldset">
@@ -78,9 +77,8 @@ export default function LoginPage() {
                   </fieldset>
                 </form>
               </div>
-              <button className="uk-button uk-button-default btn-sign-in-google"><img src={Google} alt=""/> Continue with google</button>
             </div>
-          </div>
+            <button className="uk-button uk-button-default btn-sign-in-google"><img src={Google} alt=""/> Continue with google</button>
         </div>
       </div>
     </>

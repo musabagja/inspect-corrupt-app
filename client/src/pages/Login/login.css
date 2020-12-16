@@ -1,7 +1,3 @@
-* {
-  font-family: 'Montserrat', sans-serif;
-}
-
 .login-page {
   margin-top: 188px;
 }
@@ -26,14 +22,14 @@
   text-align: left;
 }
 
-.uk-card {
+.card-login {
   background-color: #2C3E50;
 }
 
-.uk-card::after {
+.card-login::after {
   content: '';
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 50%;
   top: 10px;
   left: -10px;
   position: absolute;
@@ -55,10 +51,6 @@
   top: 375px;
   text-align: left;
   color: #FFFFFF;
-}
-
-a {
-  left: 0;
 }
 
 input[type=text] {

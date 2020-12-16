@@ -118,9 +118,8 @@ function ReportStep3() {
     <div className="uk-container uk-margin-xlarge-top">
       <div className="uk-flex">
         <form>
-          {/* onSubmit={(event) => onSubmitForm(event)} */}
           <h4>WE WOULD LIKE TO GET IN TOUCH WITH YOU FOR FURTHER INFORMATION</h4>
-          <div className="uk-margin uk-grid-small uk-child-width-auto uk-grid">
+          <div className="uk-margin">
             <label>
               <input
                 onChange={(event) => handleChange(event)}
@@ -128,6 +127,8 @@ function ReportStep3() {
                 className="uk-radio"
                 type="radio"
                 name="isKeepInTouch" /> Yes, please keep in touch with me</label>
+          </div>
+          <div className="uk-margin">
             <label>
               <input
                 onChange={(event) => handleChange(event)}
@@ -146,7 +147,7 @@ function ReportStep3() {
               rows="5"
               placeholder="Textarea"></textarea>
           </div>
-          <button onClick={e => handleNext(e)} className="uk-button uk-button-primary">Submit your report</button>
+          <button onClick={e => handleNext(e)} style={{borderRadius: 0}} className="btn-next">SUBMIT</button>
         </form>
       </div>
     </div>
