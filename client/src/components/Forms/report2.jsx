@@ -80,10 +80,10 @@ export default function Report2(props) {
                 className="uk-radio"
                 type="radio"
                 name="isReported"
-                id="Yes"
+                id="Yes-2"
                 value="true"
               />
-              <label htmlFor="Yes">Yes</label>
+              <label htmlFor="Yes-2">Yes</label>
             </div>
             <div className="uk-margin">
               <input
@@ -91,10 +91,10 @@ export default function Report2(props) {
                 className="uk-radio"
                 type="radio"
                 name="isReported"
-                id="No"
+                id="No-2"
                 value="false"
               />
-              <label htmlFor="No">No</label>
+              <label htmlFor="No-2">No</label>
               {/* <!--           <div style={{ marginBottom: "10px" }}>
             <label htmlFor="">Have you already reported the incident to another authority?</label> <br />
             <input type="radio" name="isReported" id="Yes-1" value={true} />

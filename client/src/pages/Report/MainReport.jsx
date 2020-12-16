@@ -10,6 +10,7 @@ export default function MainReport() {
   const history = useHistory()
   const { report } = useParams()
 
+
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (!token) {
@@ -61,18 +62,49 @@ export default function MainReport() {
     isKeepInTouch: '',
     aboutInspectApp: ''
   })
+  const [location, setLocation] = useState({
+    province: [],
+    city: []
+  })
+  const [provId, setProvId] = useState('')
+
+  useEffect(() => {
+    fetch('https://ibnux.github.io/data-indonesia/propinsi.json')
+      .then(res => res.json())
+      .then(prov => setLocation({
+        ...location,
+        province: prov
+      }))
+      .catch(err => err)
+  }, [])
+
+  function getCity() {
+    fetch(`https://ibnux.github.io/data-indonesia/kabupaten/${provId}.json`)
+      .then(res => res.json())
+      .then(city => setLocation({
+        ...location,
+        city: city
+      }))
+      .catch(err => err)
+  }
 
   function handleChange(e) {
     const { name, value } = e.target
+    console.log(name)
     setInput({
       ...input,
-      [name]: value
+      [name]: name === 'province' ? value.split(',')[0] : value
     })
+    if (name === "province") {
+      setProvId(value.split(',')[1])
+    }
   }
+
+  console.log(provId, "INI PROV IDNYA")
 
   const onSubmit = (e) => {
     e.preventDefault();
-
+    console.log("INI MASUK KOK")
     if (input.isKeepInTouch === "true") {
       sendMail({
         variables: {
@@ -108,6 +140,8 @@ export default function MainReport() {
             handleChange={handleChange}
             input={input}
             setInput={setInput}
+            location={location}
+            getCity={getCity}
           />
         </Page>
         <Page>
