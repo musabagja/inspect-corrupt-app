@@ -1,7 +1,15 @@
-import React from 'react'
+import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 
 function ReportFinish() {
+  const history = useHistory();
 
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      history.push('/sign-in');
+    }
+  }, [])
 
   return (
     <div className="uk-container uk-margin-xlarge-top">
