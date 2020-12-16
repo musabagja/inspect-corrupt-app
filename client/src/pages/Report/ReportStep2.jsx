@@ -78,10 +78,10 @@ export default function ReportStep2() {
           </div>
           <div style={{ marginBottom: "10px" }}>
             <label htmlFor="">Have you already reported the incident to another authority?</label> <br />
-            <input onChange={(event) => handleChange(event)} type="radio" name="isReported" id="Yes" value={true} />
-            <label htmlFor="Yes">Yes</label> <br />
-            <input onChange={(event) => handleChange(event)} type="radio" name="isReported" id="No" value={false} />
-            <label htmlFor="No">No</label>
+            <input onChange={(event) => handleChange(event)} type="radio" name="isReported" id="Yes-1" value={true} />
+            <label htmlFor="Yes-1">Yes</label> <br />
+            <input onChange={(event) => handleChange(event)} type="radio" name="isReported" id="No-1" value={false} />
+            <label htmlFor="No-1">No</label>
           </div>
         </div>
         <button style={{ marginBottom: "10px" }} className="btn-custom-1" onClick={handleNext}>Next</button>

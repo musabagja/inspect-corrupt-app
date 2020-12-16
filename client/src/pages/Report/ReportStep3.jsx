@@ -1,9 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { useHistory, useParams } from 'react-router-dom'
 import { reportData3 } from '../../config/index'
 import { gql, useMutation } from '@apollo/client';
 import { reportData1, reportData2 } from '../../config/index'
+
 function ReportStep3() {
 
   const MAKE_REPORT = gql`
@@ -32,22 +32,24 @@ function ReportStep3() {
         history.push('/sign-in')
         }
     }, [])
+  
+  const SEND_MAIL = gql`
+    mutation sendMail($payload: mailInfo!) {
+      mail(payload: $payload) { message }
+    }
+  `
 
   const history = useHistory()
   const { report } = useParams()
   const data1cache = reportData1()
   const data2cache = reportData2()
   const [addReport] = useMutation(MAKE_REPORT)
+  const [sendMail] = useMutation(SEND_MAIL)
 
   const [data3, setData3] = useState({
     isKeepInTouch: '',
     aboutInspectApp: ''
   })
-
-  function handleNext() {
-    reportData3(data3)
-    history.push(`/report/${report}/4`)
-  }
 
   function handleChange(event) {
     const { name, value } = event.target
@@ -71,8 +73,29 @@ function ReportStep3() {
 
   function handleNext(e) {
     e.preventDefault()
-    if(data3.isKeepInTouch && data3.aboutInspectApp) {
+    if (data3.isKeepInTouch && data3.aboutInspectApp) {
       const payload = { ...data1cache, ...data2cache, ...data3 }
+      if (payload.isKeepInTouch === 'true') {
+        sendMail({
+          variables: {
+            payload: {
+              toReceiver: 'bagja7musa@gmail.com',
+              subjectEmail: 'Report Submission',
+              message: `
+              <p>Your Report has been recorded, because you choose to keep in touch with us, we'll inform you any status of your report.</p>                       
+              <p>
+                Case: ${payload.case} <br/>
+                Entity: ${payload.entity} <br/>
+                Date Happened: ${payload.dateHappened} <br/>
+                Location: ${payload.city}, ${payload.province} <br/>
+                Description: ${payload.description} <br/>
+                Involved Person: ${payload.involvedPerson}
+              </p>
+              `
+            }
+          }
+        })
+      }
       addReport({
         variables: { payload: payload }
       })
