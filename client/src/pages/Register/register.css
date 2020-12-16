@@ -87,3 +87,7 @@ button {
 img {
   margin-left: -7px;
 }
+
+.uk-select {
+  border-radius: 11px;
+}

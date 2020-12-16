@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { reportData2 } from '../../config/index'
 import { useHistory, useParams } from 'react-router-dom'
 import './reportStep2.css'
@@ -7,6 +7,13 @@ export default function ReportStep2() {
 
   const history = useHistory()
   const { report } = useParams()
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      history.push('/sign-in')
+    }
+  }, [])
 
   const [data2, setData2] = useState({
     dateHappened:'',
@@ -80,6 +87,12 @@ export default function ReportStep2() {
            <div className="uk-margin"> 
             <input className="uk-radio" onChange={(event) => handleChange(event)} type="radio" name="isReported" id="No" value={false} />
             <label htmlFor="No">No</label>
+<!--           <div style={{ marginBottom: "10px" }}>
+            <label htmlFor="">Have you already reported the incident to another authority?</label> <br />
+            <input onChange={(event) => handleChange(event)} type="radio" name="isReported" id="Yes-1" value={true} />
+            <label htmlFor="Yes-1">Yes</label> <br />
+            <input onChange={(event) => handleChange(event)} type="radio" name="isReported" id="No-1" value={false} />
+            <label htmlFor="No-1">No</label> -->
           </div>
         </div>
         <button className="btn-next" style={{borderRadius: 0}} onClick={handleNext}>Next</button>

@@ -1,9 +1,16 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import { reportData1 } from '../../config'
 import './reportStep1.css'
 
 export default function ReportStep1() {
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      history.push('/sign-in')
+    }
+  }, [])
 
   const { report } = useParams()
   const [data1, setData1] = useState({
