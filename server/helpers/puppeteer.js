@@ -5,7 +5,7 @@ const axios = require('axios');
 const checkCredible = async (search) => {
   let scoreTotal = 0;
   const browser = await puppeteer.launch({
-    executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
+    // executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
     headless: true
   }); // INI GANTI SESUAI LOKASI CHROME KALIAN
 
