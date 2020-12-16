@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './reportStep1.css';
 
 export default function Report1(props) {
 

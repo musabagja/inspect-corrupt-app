@@ -46,7 +46,7 @@ export default () => {
         :
           <div>
             { showLogout ?
-              <div style={{marginTop: 20, color: 'white', fontWeight: 700}}>
+              <div style={{marginTop: 15, color: 'white', fontWeight: 700}}>
                 <button className="uk-button uk-button-danger" onClick={ handleLogout }>Logout</button>
               </div> 
               :
