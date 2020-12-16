@@ -22,20 +22,40 @@
   text-align: left;
 }
 
+.btn-google {
+  justify-content: left;
+}
+
+.btn-sign-in-google {
+  margin-top: 50px;
+  color: white; 
+  border-radius: 11px;
+  font-size: 18px;
+  background-color: #2C3E50;
+}
+
+.btn-back {
+  color: #2C3E50;
+  background-color: white;
+  top: 0;
+  right: 0;
+  position: absolute;
+}
+
 .card-login {
   background-color: #2C3E50;
 }
 
 .card-login::after {
   content: '';
-  width: 50%;
-  height: 50%;
-  top: 10px;
-  left: -10px;
+  width: 70%;
+  height: 70%;
+  top: 150px;
+  left: 15%;
   position: absolute;
-  background-color: #000000;
+  background-color: #2C3E50;
   z-index: -1;
-  filter: blur(15px);
+  filter: blur(50px);
 }
 
 .uk-legend {
@@ -61,8 +81,12 @@ input[type=text] {
   border-radius: 11px;
 }
 
-.input-password {
-  margin-top: 50px;
+input[type=password] {
+  width: 312px;
+  height: 40px;
+  left: 815px;
+  top: 435px;
+  border-radius: 11px;
 }
 
 .login {
@@ -77,19 +101,6 @@ input[type=text] {
   border-radius: 11px; 
   background-color: white; 
   font-weight: 1000;
-}
-
-.btn-sign-in-google {
-  margin-top: 50px;
-  color: white; 
-  margin-top: 50; 
-  border-radius: 11px;
-  font-size: 18px;
-  background-color: #2C3E50;
-}
-
-button {
-  border-radius: 11px;
 }
 
 img {

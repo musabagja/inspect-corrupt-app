@@ -47,8 +47,9 @@ function App() {
                 <TaxCredibilityPage />
               </Route>
               <Route exact path="/">
-                <Navbar />
-                <HomePage />
+                <Navbar/>
+                <HomePage/>
+                <Footer/>
               </Route>
               <Route path='/sign-in'>
                 <LoginPage />

@@ -18,7 +18,6 @@ const GET_NEW = gql`
 `;
 
 export default () => {
-
   const { data, loading, error } = useQuery(GET_NEW, {
     variables: {
       q: 'corruption'
@@ -36,24 +35,28 @@ export default () => {
           <div className="uk-container header-home">
             <h1>Be The <span style={{color: '#4cd137', fontWeight: 700}}>Observers</span> Truth <span style={{color: '#4cd137', fontWeight: 700}}>With</span> Us</h1>
           </div>
-        <div className="home-container">
           <div className="uk-container">
             <div className="home-content">
-              <div className="action-buttons">
-                <Link to="/tax-and-credibility">
-                  <button className="uk-button ins-button">Inspect</button>
-                </Link>
-                <Link to="/c">
-                  <button className="uk-button ins-button">Report</button>
-                </Link>
+              <div className="uk-flex uk-flex-between">
+                <div>
+                  <Link to="/tax-and-credibility">
+                    <button className="uk-button ins-button ins-button-1">Inspect</button>
+                  </Link>
+                </div>
+                <div>
+                  <Link to="/c">
+                    <button className="uk-button ins-button ins-button-2">Report</button>
+                  </Link>
+                </div>
               </div>
               <div className="news">
                 <h3>News</h3>
-                <div className="ez-liner"></div>
                 {loading &&
-                  <ReactLoading type="spinningBubbles" color="#4cd137" className="loading"/>
+                <div className="loading">
+                  <ReactLoading type="spinningBubbles" color="#4cd137" className="loading-spinner"/>
+                </div>
                 }
-                <div className="news-container">
+                <div className="news-container uk-column-1-2">
                 {data?.articles.map((article, index) => (
                   <News key={index} article={article}/>
                 ))}
@@ -61,8 +64,7 @@ export default () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </React.Fragment>
+        </section>
+      </React.Fragment>
   )
 }

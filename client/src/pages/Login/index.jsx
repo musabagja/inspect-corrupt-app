@@ -54,12 +54,16 @@ export default function LoginPage() {
     <>
       <div className="uk-container">
         <div className="login-page">
-          <div className="uk-child-width-expand@s uk-text-center login" uk-grid="true">
+          <div className="uk-flex uk-flex-between login">
             <div className="title">
                 <h1>INSPECT</h1>
                 <p>We’ll be watching you</p>
+                <div className="btn-google">
+                  <button className="uk-button uk-button-default btn-sign-in-google"><img src={Google} alt=""/> Continue with google</button>
+                </div>
             </div>
-              <div className="uk-card uk-card-default uk-card-body card-login">
+              <div className="uk-card uk-margin-xlarge-left uk-card-default uk-card-body uk-text-center card-login">
+              <button className="uk-button btn-back" onClick={ () => { history.push('/') } }><span uk-icon="chevron-right"></span></button>
                 <form onSubmit={ handleLogin }>
                   <fieldset className="uk-fieldset">
                   <legend className="uk-legend">SIGN IN</legend>
@@ -68,18 +72,16 @@ export default function LoginPage() {
                       <p className="legend-2 l-2" style={{color: "#E74C3C"}}>Lets sign up</p>
                     </Link>
                     <div className="uk-margin">
-                        <input name="email" onChange={ (e) => handleInputChange(e.target) } value={ loginInput.email } className="uk-input" type="text" placeholder="Email"/>
+                        <input name="email" onChange={ (e) => handleInputChange(e.target) } value={ loginInput.email } className="uk-input uk-margin-top input-email" type="text" placeholder="Email"/>
                     </div>
                     <div className="uk-margin">
-                        <input name="password" onChange={ (e) => handleInputChange(e.target) } value={ loginInput.password } className="uk-input input-password" type="password" placeholder="Password"/>
+                        <input name="password" onChange={ (e) => handleInputChange(e.target) } value={ loginInput.password } className="uk-input uk-margin-top input-password" type="password" placeholder="Password"/>
                     </div>
                     <button type="submit" className="uk-button uk-button-default btn-sign-in">SIGN IN</button>
-                    <button onClick={ () => { history.push('/') } }>Back</button>
                   </fieldset>
                 </form>
               </div>
             </div>
-            <button className="uk-button uk-button-default btn-sign-in-google"><img src={Google} alt=""/> Continue with google</button>
         </div>
       </div>
     </>

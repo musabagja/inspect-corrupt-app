@@ -1,6 +1,6 @@
 import './style.css';
 import { useEffect, useState } from 'react';
-import { useHistory, useRouteMatch } from 'react-router-dom';
+import { useHistory, useRouteMatch, Link } from 'react-router-dom';
 
 export default () => {
   const history = useHistory();
@@ -39,20 +39,24 @@ export default () => {
         <div>
           <a href="#" onClick={ toHome }><h3>INSPECT</h3></a>
         </div>
-        <div>
-          { url !== "/" ? 
+        { url !== "/" ? 
+          <div>
             <a href="#" onClick={ getBack }><h4>BACK</h4></a>
-          :
-            <div>
-              { showLogout ? 
+          </div>
+        :
+          <div>
+            { showLogout ?
+              <div style={{marginTop: 20, color: 'white', fontWeight: 700}}>
                 <button className="uk-button uk-button-danger" onClick={ handleLogout }>Logout</button>
-                :
-                <button className="uk-button uk-button-primary" onClick={ toLogin }>Login</button>
-              }
-            </div>
-          }
-        </div>
+              </div> 
+              :
+              <div style={{marginTop: 20, color: 'white', fontWeight: 700}}>
+                <Link to="/sign-in" className="uk-link-text">LOGIN</Link>
+              </div>
+            }
+          </div>
+        }
       </div>
-    </div>
+  </div>
   )
 }
