@@ -2,63 +2,64 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { ApolloProvider } from '@apollo/client';
 import client from './config/index';
-import { 
+import {
   HomePage, RegisterPage, LoginPage, TaxCredibilityPage, CasesOptionPage,
   Report1, Report2, Report3, ReportFinish, AdminReport
 } from './pages';
 import { Navbar } from './components';
 import Footer from './components/Footer/index';
+import MainReport from './pages/Report/MainReport';
 // import store from './store';
 
 function App() {
   return (
     <>
-    <div className="App">
-      <ApolloProvider client={client}>
-        <Router>
+      <div className="App">
+        <ApolloProvider client={client}>
+          <Router>
             <Switch>
-              <Route path="/report/:report/2">
-                <Navbar/>
-                <Report2/>
+              <Route path="/report/:report/">
+                <Navbar />
+                <MainReport/>
               </Route>
-              <Route path="/report/:report/3">
-                <Navbar/>
-                <Report3/>
+              <Route path="/report-finish">
+                <Navbar />
+                <ReportFinish />
               </Route>
-              <Route path="/report/:report/4">
-                <Navbar/>
-                <ReportFinish/>
+              {/* <Route path="/report/:report/3">
+                <Navbar />
+                <Report3 />
               </Route>
               <Route path="/report/:report">
-                <Navbar/>
-                <Report1/>
+                <Navbar />
+                <Report1 />
               </Route>
               <Route path="/admin">
-                <Navbar/>
-                <AdminReport/>
-              </Route>
+                <Navbar />
+                <AdminReport />
+              </Route> */}
               <Route path="/c">
-                <Navbar/>
-                <CasesOptionPage/>
+                <Navbar />
+                <CasesOptionPage />
               </Route>
               <Route path="/tax-and-credibility">
-                <Navbar/>
-                <TaxCredibilityPage/>
+                <Navbar />
+                <TaxCredibilityPage />
               </Route>
               <Route exact path="/">
-                <Navbar/>
-                <HomePage/>
+                <Navbar />
+                <HomePage />
               </Route>
               <Route path='/sign-in'>
-                <LoginPage/>
+                <LoginPage />
               </Route>
               <Route path='/sign-up'>
-                <RegisterPage/>
+                <RegisterPage />
               </Route>
             </Switch>
-        </Router>
-      </ApolloProvider>
-    </div>
+          </Router>
+        </ApolloProvider>
+      </div>
     </>
   );
 }
