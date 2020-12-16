@@ -29,27 +29,29 @@ export default function Report2(props) {
                 id="description"></textarea>
             </div>
             <label htmlFor="">Could you provide the documents?</label>
-            <div className="uk-margin">
-              <input
-                onChange={e => handleChange(e)}
-                className="uk-radio"
-                type="radio"
-                name="isDocumentProvided"
-                id="Yes" 
-                value="true"
-                />
-              <label htmlFor="Yes">Yes</label>
-            </div>
-            <div className="uk-margin">
-              <input
-                onChange={e => handleChange(e)}
-                className="uk-radio"
-                type="radio"
-                name="isDocumentProvided"
-                id="No" 
-                value="false"
-                />
-              <label htmlFor="No">No</label>
+            <div className="a1-rad-custom">
+              <div className="uk-margin">
+                <input
+                  onChange={e => handleChange(e)}
+                  className="uk-radio"
+                  type="radio"
+                  name="isDocumentProvided"
+                  id="Yes" 
+                  value="true"
+                  />
+                <label htmlFor="Yes"> Yes</label>
+              </div>
+              <div className="uk-margin">
+                <input
+                  onChange={e => handleChange(e)}
+                  className="uk-radio"
+                  type="radio"
+                  name="isDocumentProvided"
+                  id="No" 
+                  value="false"
+                  />
+                <label htmlFor="No"> No</label>
+              </div>
             </div>
           </div>
         </div>
@@ -75,33 +77,29 @@ export default function Report2(props) {
                 rows="5"></textarea>
             </div>
             <label htmlFor="">Have you already reported the incident to another authority?</label>
-            <div className="uk-margin">
-              <input
-                onChange={e => handleChange(e)}
-                className="uk-radio"
-                type="radio"
-                name="isReported"
-                id="Yes"
-                value="true"
-              />
-              <label htmlFor="Yes">Yes</label>
-            </div>
-            <div className="uk-margin">
-              <input
-                onChange={e => handleChange(e)}
-                className="uk-radio"
-                type="radio"
-                name="isReported"
-                id="No"
-                value="false"
-              />
-              <label htmlFor="No">No</label>
-              {/* <!--           <div style={{ marginBottom: "10px" }}>
-            <label htmlFor="">Have you already reported the incident to another authority?</label> <br />
-            <input type="radio" name="isReported" id="Yes-1" value={true} />
-            <label htmlFor="Yes-1">Yes</label> <br />
-            <input type="radio" name="isReported" id="No-1" value={false} />
-            <label htmlFor="No-1">No</label> --> */}
+            <div className="a1-rad-custom">
+              <div className="uk-margin">
+                <input
+                  onChange={e => handleChange(e)}
+                  className="uk-radio"
+                  type="radio"
+                  name="isReported"
+                  id="Yes"
+                  value="true"
+                />
+                <label htmlFor="Yes">Yes</label>
+              </div>
+              <div className="uk-margin">
+                <input
+                  onChange={e => handleChange(e)}
+                  className="uk-radio"
+                  type="radio"
+                  name="isReported"
+                  id="No"
+                  value="false"
+                />
+                <label htmlFor="No">No</label>
+              </div>
             </div>
           </div>
         </div>

@@ -102,7 +102,7 @@ export default function TaxAndCredibility() {
       <div className="uk-container tax-credibility">
         { credibilityResult && !loading ?
           <div className="credibility-alert" uk-alert>
-            <a class="uk-alert-close" uk-close></a>
+            <a style={{color: 'black', padding: 10, top: 0, width: 100, height: 100}} class="uk-alert-close" uk-close></a>
             <ul>
               { credibilityResult.name ? 
                 <li>Company Name: { credibilityResult.name }</li>
