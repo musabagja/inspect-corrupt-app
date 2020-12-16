@@ -4,6 +4,7 @@ const newsSchema = require('./schemas/news');
 const reportSchema = require('./schemas/report');
 const credibleSchema = require('./schemas/credible');
 const npwpSchema = require('./schemas/npwpStatus');
+const emailSchema = require('./schemas/sendEmail')
 const express = require('express');
 const { graphqlHTTP } = require("express-graphql");
 const { startDatabase } = require('./config/database');
@@ -16,8 +17,8 @@ const typeDefs = gql`
 `;
 
 const schema = makeExecutableSchema({
-  typeDefs: [typeDefs, userSchema.typeDefs, newsSchema.typeDefs, reportSchema.typeDefs, credibleSchema.typeDefs, npwpSchema.typeDefs],
-  resolvers: [userSchema.resolvers, newsSchema.resolvers, reportSchema.resolvers, credibleSchema.resolvers, npwpSchema.resolvers]
+  typeDefs: [typeDefs, userSchema.typeDefs, newsSchema.typeDefs, reportSchema.typeDefs, credibleSchema.typeDefs, npwpSchema.typeDefs, emailSchema.typeDefs],
+  resolvers: [userSchema.resolvers, newsSchema.resolvers, reportSchema.resolvers, credibleSchema.resolvers, npwpSchema.resolvers, emailSchema.resolvers]
 })
 
 const server = new ApolloServer({

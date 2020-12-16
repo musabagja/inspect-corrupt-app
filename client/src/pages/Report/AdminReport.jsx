@@ -58,7 +58,6 @@ function AdminReport() {
                 <tbody>
                     {data.reports.map((el, i) => {
                         return (
-
                             <tr>
                                 <td>{i + 1}</td>
                                 <td>{el.UserEmail}</td>
