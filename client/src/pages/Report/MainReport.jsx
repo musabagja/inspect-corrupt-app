@@ -90,7 +90,6 @@ export default function MainReport() {
 
   function handleChange(e) {
     const { name, value } = e.target
-    console.log(name)
     setInput({
       ...input,
       [name]: name === 'province' ? value.split(',')[0] : value
@@ -100,11 +99,8 @@ export default function MainReport() {
     }
   }
 
-  console.log(provId, "INI PROV IDNYA")
-
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("INI MASUK KOK")
     if (input.isKeepInTouch === "true") {
       sendMail({
         variables: {

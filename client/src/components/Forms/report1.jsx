@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 
 export default function Report1(props) {
   const { handleChange, input, location, getCity } = props
-  console.log(input)
 
   return (
     <>
