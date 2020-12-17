@@ -2,13 +2,14 @@ import React from 'react';
 import './reportStep1.css';
 
 export default function Report1(props) {
+  const { handleChange, input, location, getCity } = props
 
-  const { handleChange, input, setInput } = props
   return (
     <>
       <div className="uk-container report-step-1">
         <div className="uk-flex uk-flex-between">
           <div>
+            <button>Search</button>
             <h2 className="q1-custom">SELECT THE KIND OF ENTITY INVOLVED IN THE INCIDENT</h2>
             <hr />
             <div className="a1-rad-custom">
@@ -32,22 +33,35 @@ export default function Report1(props) {
               <hr />
               <div className="input-province">
                 <label htmlFor="province">Province</label> <br />
-                <input
-                  style={{ height: "25px", borderRadius: "3px", backgroundColor: "#2c3e50", color: "#ffffff" }}
-                  type="text"
-                  name="province"
+                <select
                   onChange={e => handleChange(e)}
-                />
+                  onClick={getCity}
+                  name="province"
+                  id="province"
+                >
+                  <option value="">Select Provinces</option>
+                  {
+                    location.province.map(prov => {
+                      return (
+                        <option key={prov.id} value={`${prov.nama},${prov.id}`}>{prov.nama}</option>
+                      )
+                    })
+                  }
+                </select>
               </div>
               <br />
               <div className="input-city">
                 <label htmlFor="city">City</label> <br />
-                <input
-                  style={{ height: "25px", borderRadius: "3px", backgroundColor: "#2c3e50", color: "#ffffff" }}
-                  type="text"
-                  name="city"
-                  onChange={e => handleChange(e)}
-                />
+                <select onChange={e => handleChange(e)} name="city" id="city">
+                  <option value="">Select City</option>
+                  {
+                    location.city.map(ct => {
+                      return (
+                        <option key={ct.id} value={ct.nama}>{ct.nama}</option>
+                      )
+                    })
+                  }
+                </select>
               </div>
             </div>
           </div>
