@@ -28,7 +28,7 @@ export default function Report2(props) {
                 name="description"
                 id="description"></textarea>
             </div>
-            <label htmlFor="">Could you provide the documents?</label>
+            {/* <label htmlFor="">Could you provide the documents?</label>
             <div className="a1-rad-custom">
               <div className="uk-margin">
                 <input
@@ -52,7 +52,7 @@ export default function Report2(props) {
                   />
                 <label htmlFor="No"> No</label>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="side-right">

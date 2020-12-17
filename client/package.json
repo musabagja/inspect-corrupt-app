@@ -6,6 +6,7 @@
     "@apollo/client": "^3.3.6",
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.1.2",
+    "@sweetalert2/theme-borderless": "^4.0.1",
     "@testing-library/jest-dom": "^5.11.6",
     "@testing-library/react": "^11.2.2",
     "@testing-library/user-event": "^12.5.0",
@@ -23,6 +24,7 @@
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0",
     "sweetalert": "^2.1.2",
+    "sweetalert2": "^10.12.5",
     "web-vitals": "^0.2.4"
   },
   "scripts": {

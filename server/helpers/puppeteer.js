@@ -5,7 +5,7 @@ const axios = require('axios');
 const checkCredible = async (search) => {
   let scoreTotal = 0;
   const browser = await puppeteer.launch({
-    // executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
+    executablePath: 'C:/Program Files/Google/Chrome/Application/chrome.exe',
     headless: true
   }); // INI GANTI SESUAI LOKASI CHROME KALIAN
 
@@ -61,6 +61,7 @@ const checkCredible = async (search) => {
   data.data.forEach(el => {
     if (el.NamaEmiten.toLowerCase().includes(search)) {
       name = el.NamaEmiten
+      scoreTotal += 14.3;
       idxFlag = true;
       if (el.NPWP) {
         npwp = el.NPWP;
@@ -82,7 +83,6 @@ const checkCredible = async (search) => {
   });
 
   await browser.close();
-  console.log(scoreTotal)
   
   if (indoInvestments) {
     scoreTotal += 14.3;

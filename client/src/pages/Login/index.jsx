@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom";
 import { useState, useEffect } from 'react';
 import Google from "./img/google.png";
 import { gql, useMutation } from '@apollo/client';
+import Swal from 'sweetalert2';
 
 const LOGIN = gql`
   mutation loginUser($payload: LoginUser!) {
@@ -38,7 +39,23 @@ export default function LoginPage() {
       .then(({ data }) => {
         localStorage.setItem('email', data.Login.email);
         localStorage.setItem('token', data.Login.token);
-        history.push('/');
+        history.goBack();
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        
+        Toast.fire({
+          icon: 'success',
+          title: 'Signed in successfully'
+        })
       })
       .catch(err => {
         console.log(err)

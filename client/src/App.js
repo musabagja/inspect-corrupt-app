@@ -35,11 +35,11 @@ function App() {
               <Route path="/report/:report">
                 <Navbar />
                 <Report1 />
-              </Route>
+              </Route> */}
               <Route path="/admin">
                 <Navbar />
                 <AdminReport />
-              </Route> */}
+              </Route>
               <Route path="/c">
                 <Navbar />
                 <CasesOptionPage />

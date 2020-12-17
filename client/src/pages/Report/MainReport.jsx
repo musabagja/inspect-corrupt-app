@@ -5,6 +5,7 @@ import { useHistory, useParams } from 'react-router-dom'
 import Report1 from '../../components/Forms/report1'
 import Report2 from '../../components/Forms/report2'
 import Report3 from '../../components/Forms/report3'
+import Swal from 'sweetalert2'
 
 export default function MainReport() {
   const history = useHistory()
@@ -15,6 +16,10 @@ export default function MainReport() {
     const token = localStorage.getItem('token');
     if (!token) {
       history.push('/sign-in');
+      Swal.fire({
+        icon: 'error',
+        text: 'You need to sign-in to give report!'
+      })
     }
   }, [])
 
@@ -60,7 +65,8 @@ export default function MainReport() {
     personRole: '',
     isReported: '',
     isKeepInTouch: '',
-    aboutInspectApp: ''
+    aboutInspectApp: '',
+    UserEmail: receiverMail
   })
   const [location, setLocation] = useState({
     province: [],
@@ -122,6 +128,7 @@ export default function MainReport() {
         }
       })
     }
+    const email = localStorage.getItem('email')
     addReport({
       variables: { payload: input }
     })

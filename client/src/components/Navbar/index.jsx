@@ -1,6 +1,7 @@
 import './style.css';
 import { useEffect, useState } from 'react';
 import { useHistory, useRouteMatch, Link } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 export default () => {
   const history = useHistory();
@@ -18,10 +19,6 @@ export default () => {
     e.preventDefault();
     history.push('/');
   }
-  
-  const toLogin = () => {
-    history.push('/sign-in')
-  }
 
   const getBack = (e) => {
     e.preventDefault();
@@ -29,8 +26,35 @@ export default () => {
   }
 
   const handleLogout = () => {
-    localStorage.clear();
-    setShowLogout(false);
+    Swal.fire({
+      text: "Are you sure ?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Logout'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        
+        Toast.fire({
+          icon: 'success',
+          title: 'Signed out successfully'
+        })
+        localStorage.clear();
+        setShowLogout(false);
+      }
+    })
   }
 
   return (

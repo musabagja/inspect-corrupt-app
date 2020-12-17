@@ -33,6 +33,7 @@ const typeDefs = gql`
     isReported: String!
     isKeepInTouch: String!
     aboutInspectApp: String
+    UserEmail: String!
   }
   extend type Query {
     reports: [Report]

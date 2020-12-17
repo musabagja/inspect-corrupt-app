@@ -9,7 +9,6 @@ export default function Report1(props) {
       <div className="uk-container report-step-1">
         <div className="uk-flex uk-flex-between">
           <div>
-            <button>Search</button>
             <h2 className="q1-custom">SELECT THE KIND OF ENTITY INVOLVED IN THE INCIDENT</h2>
             <hr />
             <div className="a1-rad-custom">
