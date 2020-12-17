@@ -1,4 +1,5 @@
 const { ApolloServer, gql, makeExecutableSchema } = require("apollo-server");
+const cors = require('cors');
 const userSchema = require('./schemas/user');
 const newsSchema = require('./schemas/news');
 const reportSchema = require('./schemas/report');
@@ -15,6 +16,8 @@ const typeDefs = gql`
   type Query
   type Mutation
 `;
+
+app.use(cors())
 
 const schema = makeExecutableSchema({
   typeDefs: [typeDefs, userSchema.typeDefs, newsSchema.typeDefs, reportSchema.typeDefs, credibleSchema.typeDefs, npwpSchema.typeDefs, emailSchema.typeDefs],

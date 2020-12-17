@@ -16,18 +16,13 @@ const typeDefs = gql`
 const resolvers = {
     Query : {
         articles: async (_, args) => {
-            const { q } = args;
-            try {
-                const { data } = await axios.get(`https://www.news.developeridn.com/search/?q=${q}`);
-                console.log(data.data);
-                if (data.data.length % 2 === 0) {
-                    return data.data
-                } else {
-                    data.data.pop();
-                    return data.data;
-                }
-            } catch (error) {
-                throw error;
+            const { data } = await axios.get(`https://www.news.developeridn.com/search/?q=${args.q}`);
+            const news = data.data
+            if (news.length % 2 === 0) {
+                return news
+            } else {
+                news.pop();
+                return news;
             }
         }
     }
