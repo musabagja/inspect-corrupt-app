@@ -10,6 +10,7 @@ const LOGIN = gql`
   Login(payload: $payload) {
     token
     email
+    role
   }
 }
 `;
@@ -39,6 +40,7 @@ export default function LoginPage() {
       .then(({ data }) => {
         localStorage.setItem('email', data.Login.email);
         localStorage.setItem('token', data.Login.token);
+        localStorage.setItem('role', data.Login.role);
         history.goBack();
         const Toast = Swal.mixin({
           toast: true,

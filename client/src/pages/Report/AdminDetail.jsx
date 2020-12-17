@@ -42,42 +42,42 @@ export default () => {
     <div>
       <div className="uk-container">
         <div className="data-detail">
-        <label>ID: { data.report._id }</label>
+        <label>ID: { data?.report._id }</label>
         <div className="uk-margin">
           <label>Case: </label>
         </div>
         <div class="uk-margin">
-          <input className="uk-input custom-uk-input" type="text" placeholder="Input"value={ data.report.case } disabled/>
+          <input className="uk-input custom-uk-input" type="text" placeholder="Input"value={ data?.report.case } disabled/>
         </div>
         <div className="uk-margin">
           <label>Description: </label>
         </div>
         <div className="uk-margin">
-          <textarea className="uk-textarea" rows="5" placeholder="Textarea" value={ data.report.description } disabled ></textarea>
+          <textarea className="uk-textarea" rows="5" placeholder="Textarea" value={ data?.report.description } disabled ></textarea>
         </div>
         <div className="uk-margin">
           <label>Local Government: </label>
         </div>
         <div className="uk-margin">
-          <input className="uk-input custom-uk-input" type="text" value={ data.report.entity } disabled />
+          <input className="uk-input custom-uk-input" type="text" value={ data?.report.entity } disabled />
         </div>
         <div className="uk-margin">
           <label>Province: </label>
         </div>
         <div className="uk-margin">
-          <input className="uk-input custom-uk-input" type="text" value={ data.report.province } disabled />
+          <input className="uk-input custom-uk-input" type="text" value={ data?.report.province } disabled />
         </div>
         <div className="uk-margin">
           <label>City: </label>
         </div>
         <div className="uk-margin">
-          <input className="uk-input custom-uk-input" type="text" value={ data.report.city } disabled />
+          <input className="uk-input custom-uk-input" type="text" value={ data?.report.city } disabled />
         </div>
         <div className="uk-margin">
           <label>Date Happened: </label>
         </div>
         <div className="uk-margin">
-          <input className="uk-input custom-uk-input" type="date" value={ data.report.dateHappened } disabled />
+          <input className="uk-input custom-uk-input" type="date" value={ data?.report.dateHappened } disabled />
         </div>
         </div>
       </div>

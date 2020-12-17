@@ -25,6 +25,7 @@ const typeDefs = gql`
   input LoginUser {
     email: String
     password: String
+    role: String
   }
   input RegisterUser {
     first_name: String!
@@ -59,7 +60,6 @@ const resolvers = {
   Mutation: {
     Register: async (_, args) => {
       try {
-        console.log('sampe')
         const { payload } = args;
         const data = { ...payload, role: "User" }
 
@@ -90,7 +90,7 @@ const resolvers = {
               email: user.email,
               last_name: user.last_name
             });
-            return { token, email: user.email };
+            return { token, email: user.email, role: user.role };
           }
         }
       } catch (err) {
