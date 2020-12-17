@@ -28,7 +28,6 @@ describe('GET USER BY ID', () => {
     nationalin: "indonesian",
     birth_date: "01/01/2000",
     gender: "male",
-    role: 'user'
   }
 
   let getId;
@@ -46,7 +45,7 @@ describe('GET USER BY ID', () => {
   it("get user success with status 200 and instance of object", (done) => {
     request.get('/')
       .send({
-        query: `{ User(id: "${getId}"){_id, first_name, last_name, email, nationalin, birth_date, gender, role} }`
+        query: `{ User(id: "${getId}"){_id, first_name, last_name, email, nationalin, birth_date, gender} }`
       })
       .set("Accept", "application/json")
       .end((err, res) => {
@@ -60,7 +59,7 @@ describe('GET USER BY ID', () => {
   it("get user success with have property User with value object", (done) => {
     request.get('/')
       .send({
-        query: `{ User(id: "${getId}"){_id, first_name, last_name, email, nationalin, birth_date, gender, role} }`
+        query: `{ User(id: "${getId}"){_id, first_name, last_name, email, nationalin, birth_date, gender} }`
       })
       .set("Accept", "application/json")
       .end((err, res) => {
@@ -73,7 +72,7 @@ describe('GET USER BY ID', () => {
   it("get user success with have all property", (done) => {
     request.get('/')
       .send({
-        query: `{ User(id: "${getId}"){_id, first_name, last_name, email, nationalin, birth_date, gender, role} }`
+        query: `{ User(id: "${getId}"){_id, first_name, last_name, email, nationalin, birth_date, gender} }`
       })
       .set("Accept", "application/json")
       .end((err, res) => {
@@ -84,7 +83,6 @@ describe('GET USER BY ID', () => {
         expect(res.body.data.User).toHaveProperty("nationalin", expect.any(String));
         expect(res.body.data.User).toHaveProperty("birth_date", expect.any(String));
         expect(res.body.data.User).toHaveProperty("gender", expect.any(String));
-        expect(res.body.data.User).toHaveProperty("role", expect.any(String));
         done();
       })
   });
@@ -136,7 +134,7 @@ describe('REGISTER USER', () => {
   
     request.post('/')
       .send({
-        query: "mutation { Register(payload: { first_name: \"User\" last_name: \"user\" email: \"user@mail.com\" password: \"user\" nationalin: \"indonesian\" birth_date: \"01/01/2000\" gender: \"male\"}) {_id first_name last_name email nationalin birth_date gender}}"
+        query: "mutation { Register(payload: { first_name: \"User\" last_name: \"user\" email: \"user@mail.com\" password: \"user\" nationalin: \"indonesian\" birth_date: \"01/01/2000\" gender: \"male\" role: \"user\"}) {_id first_name last_name email nationalin birth_date gender}}"
       })
       .set("Accept", "application/json")
       .end((err, res) => {
@@ -151,7 +149,7 @@ describe('REGISTER USER', () => {
   
     request.post('/')
       .send({
-        query: "mutation { Register(payload: { first_name: \"User\" last_name: \"user\" email: \"user@mail.com\" password: \"user\" nationalin: \"indonesian\" birth_date: \"01/01/2000\" gender: \"male\"}) {_id first_name last_name email nationalin birth_date gender}}"
+        query: "mutation { Register(payload: { first_name: \"User\" last_name: \"user\" email: \"user@mail.com\" password: \"user\" nationalin: \"indonesian\" birth_date: \"01/01/2000\" gender: \"male\" role: \"user\"}) {_id first_name last_name email nationalin birth_date gender}}"
       })
       .set("Accept", "application/json")
       .end((err, res) => {
@@ -172,7 +170,7 @@ describe('REGISTER USER', () => {
   
     request.post('/')
       .send({
-        query: "mutation { Register(payload: { first_name: \"User\" last_name: \"user\" email: \"user@mail.com\" password: \"user\" nationalin: \"indonesian\" birth_date: \"01/01/2000\" gender: \"male\"}) {_id first_name last_name email nationalin birth_date gender}}"
+        query: "mutation { Register(payload: { first_name: \"User\" last_name: \"user\" email: \"user@mail.com\" password: \"user\" nationalin: \"indonesian\" birth_date: \"01/01/2000\" gender: \"male\" role: \"user\"}) {_id first_name last_name email nationalin birth_date gender}}"
       })
       .set("Accept", "application/json")
       .end((err, res) => {
@@ -226,6 +224,8 @@ describe("Login user", () => {
     .end((err, res) => {
       if (err) return done(err)
       const { token } = res.body.data.Login;
+      // console.log(token);
+      expect(token).toBe(token.toString());
       expect(res.body.data.Login).toHaveProperty("token", expect.any(String));
       done();
     })
@@ -234,7 +234,7 @@ describe("Login user", () => {
   it('Login fail cause wrong email', (done) => {
     request.post('/')
     .send({
-      query: "mutation { Login(payload: {email: \"useruser@mail.com\" password: \"user\"} ) { token } }"
+      query: "mutation { Login(payload: {email: \"userAdmin@mail.com\" password: \"user\"} ) { token } }"
     })
     .set("Accept", "application/json")
       .end((err, res) => {

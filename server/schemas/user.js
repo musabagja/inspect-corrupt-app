@@ -35,6 +35,7 @@ const typeDefs = gql`
     nationalin: String!
     birth_date: String!
     gender: String!
+    role: String!
   }
   extend type Query {
     User(id: ID!): User
