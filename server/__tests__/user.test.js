@@ -226,8 +226,6 @@ describe("Login user", () => {
     .end((err, res) => {
       if (err) return done(err)
       const { token } = res.body.data.Login;
-      // console.log(token);
-      expect(token).toBe(token.toString());
       expect(res.body.data.Login).toHaveProperty("token", expect.any(String));
       done();
     })

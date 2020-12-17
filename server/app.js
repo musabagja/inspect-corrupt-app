@@ -27,7 +27,6 @@ const server = new ApolloServer({
 
 const context = async () => {
   const db = await startDatabase();
-
   return { db };
 }
 
