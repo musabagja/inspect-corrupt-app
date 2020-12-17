@@ -6,3 +6,4 @@ export { default as TaxCredibilityPage } from './TaxAndCredibility';
 
 export { default as ReportFinish } from './Report/ReportFinish';
 export { default as AdminReport } from './Report/AdminReport';
+export { default as AdminDetail } from './Report/AdminDetail';

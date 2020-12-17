@@ -73,7 +73,6 @@ function AdminReport() {
                 </table>
 
             </div>
-            <Footer/>
         </React.Fragment>
     )
 }

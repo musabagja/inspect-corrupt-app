@@ -4,7 +4,7 @@ import { ApolloProvider } from '@apollo/client';
 import client from './config/index';
 import {
   HomePage, RegisterPage, LoginPage, TaxCredibilityPage, CasesOptionPage,
-  Report1, Report2, Report3, ReportFinish, AdminReport
+  ReportFinish, AdminReport, AdminDetail
 } from './pages';
 import { Navbar } from './components';
 import Footer from './components/Footer/index';
@@ -18,9 +18,19 @@ function App() {
         <ApolloProvider client={client}>
           <Router>
             <Switch>
-              <Route path="/report/:report/">
+              <Route path="/report/:report">
                 <Navbar />
                 <MainReport/>
+                <Footer/>
+              </Route>
+              <Route path="/report/:report">
+                <Navbar />
+                <MainReport/>
+                <Footer/>
+              </Route>
+              <Route path="/admin/:reportId">
+                <Navbar />
+                <AdminDetail/>
                 <Footer/>
               </Route>
               <Route path="/report-finish">
@@ -39,6 +49,7 @@ function App() {
               <Route path="/admin">
                 <Navbar />
                 <AdminReport />
+                <Footer/>
               </Route>
               <Route path="/c">
                 <Navbar />
