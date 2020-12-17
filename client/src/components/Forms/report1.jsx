@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import './reportStep1.css';
 
 export default function Report1(props) {
   const { handleChange, input, location, getCity } = props
