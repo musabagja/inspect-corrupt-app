@@ -3,8 +3,19 @@
   height: 50vh;
 }
 
+.result-heading {
+  margin-top: 100px;
+  width: 45%;
+  border: 1px solid #95a5a6;
+}
+
+.result-heading p {
+  margin-top: 15px;
+  font-size: 30px;
+}
+
 .main-content-tax {
-  margin-top: 30px;
+  margin-top: 150px;
   height: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -14,7 +25,7 @@
   content: '';
   display: block;
   position: absolute;
-  top: 10%;
+  top: 30%;
   left: 10%;
   width: 80%;
   height: 65%;
@@ -64,8 +75,8 @@
   position: absolute;
   padding: 50px;
   width: 800px;
-  top: 200px;
-  left: 30%;
+  top: 6vh;
+  left: 27%;
   z-index: 1;
   background-color: rgba(255, 255, 255, 0.2);
   backdrop-filter: blur(100px);
@@ -74,7 +85,7 @@
 
 .npwp-alert {
   position: absolute;
-  top: 10vh;
+  top: 5vh;
   right: 35vw;
   z-index: 999;
   background-color: rgba(255, 255, 255, 0.2);

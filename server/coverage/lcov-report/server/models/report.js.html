@@ -23,9 +23,9 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/8</span>
+                <span class='fraction'>4/8</span>
             </div>
         
             
@@ -37,16 +37,16 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">20% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>5/5</span>
+                <span class='fraction'>1/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/8</span>
+                <span class='fraction'>4/8</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line high'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -87,34 +87,24 @@
 <a name='L28'></a><a href='#L28'>28</a>
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
-<a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a>
-<a name='L38'></a><a href='#L38'>38</a>
-<a name='L39'></a><a href='#L39'>39</a>
-<a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-yes">3x</span>
+<a name='L31'></a><a href='#L31'>31</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -123,21 +113,11 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span></td><td class="text"><pre class="prettyprint lang-js">const { db, ObjectID } = require('../config/database')
+<span class="cline-any cline-yes">2x</span></td><td class="text"><pre class="prettyprint lang-js">const { db, ObjectID } = require('../config/database')
 const reportsCollection = db.collection(process.env.REPORTS_COLLECTION || 'Reports')
 &nbsp;
 class Reports {
@@ -145,35 +125,25 @@ class Reports {
     return await reportsCollection.find().toArray()
   }
 &nbsp;
-  static async getReportById(id) {
-    return await reportsCollection.findOne({"_id": ObjectID(id)})
+<span class="fstat-no" title="function not covered" >  st</span>atic async getReportById(id) {
+<span class="cstat-no" title="statement not covered" >    return await reportsCollection.findOne({"_id": ObjectID(id)})</span>
   }
 &nbsp;
-  static async makeReports(payload) {
-    return await reportsCollection.insertOne(payload)
+<span class="fstat-no" title="function not covered" >  st</span>atic async makeReports(payload) {
+<span class="cstat-no" title="statement not covered" >    return await reportsCollection.insertOne(payload)</span>
   }
 &nbsp;
-  static async updateReport(id, payload) {
-    return await reportsCollection.findOneAndUpdate({ "_id": ObjectID(id) },
+<span class="fstat-no" title="function not covered" >  st</span>atic async updateReport(id, payload) {
+<span class="cstat-no" title="statement not covered" >    return await reportsCollection.findOneAndUpdate({ "_id": ObjectID(id) },</span>
       {
         $set: {
-          'case': payload.case,
-          'entity': payload.entity,
-          'province': payload.province,
-          'city': payload.city,
-          'dateHappened': payload.dateHappened,
-          'description': payload.description,
-          'isDocumentProvided': payload.isDocumentProvided,
-          'involvedPerson': payload.involvedPerson,
-          'personRole': payload.personRole,
-          'isReported': payload.isReported,
-          'isKeepInTouch': payload.isKeepInTouch,
+          'status': payload
         }
       }, { returnOriginal: false })
   }
 &nbsp;
-  static async deleteReport(id) {
-    return await reportsCollection.findOneAndDelete({ "_id": ObjectID(id) })
+<span class="fstat-no" title="function not covered" >  st</span>atic async deleteReport(id) {
+<span class="cstat-no" title="statement not covered" >    return await reportsCollection.findOneAndDelete({ "_id": ObjectID(id) })</span>
   }
 }
 &nbsp;
@@ -184,7 +154,7 @@ module.exports = Reports</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank">istanbul</a>
-                at Sun Dec 13 2020 15:13:48 GMT+0700 (Western Indonesia Time)
+                at Thu Dec 17 2020 14:55:51 GMT+0700 (Indochina Time)
             </div>
         </div>
         <script src="../../prettify.js"></script>

@@ -84,7 +84,6 @@ const resolvers = {
           if (!compare(payload.password, user.password)) {
             return new Error({ message: 'Wrong Email/Password' })
           } else {
-            console.log(user)
             const token = jwtSign({
               id: user._id,
               email: user.email,

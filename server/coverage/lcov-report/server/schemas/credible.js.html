@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for server/schemas/news.js</title>
+    <title>Code coverage report for server/schemas/credible.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">server/schemas</a> news.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">server/schemas</a> credible.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.71% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/14</span>
+                <span class='fraction'>5/10</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">35.71% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/14</span>
+                <span class='fraction'>5/10</span>
             </div>
         
             
@@ -55,7 +55,7 @@
             Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
         </p>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -92,77 +92,80 @@
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">2x</span></td><td class="text"><pre class="prettyprint lang-js">const { gql } = require('apollo-server')
-const axios = require('axios').default;
+<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const { gql } = require('apollo-server');
+const checkCredible = require('../helpers/puppeteer');
+&nbsp;
 const typeDefs = gql`
-    type Articles {
-        judul: String
-        link: String
-        poster: String
-        tipe: String
-        waktu: String
-    }
-    extend type Query {
-        articles(q: String): [Articles] 
-    }
+  type Credibility {
+    name: String,
+    kpbn: Boolean,
+    indoInvestments: Boolean,
+    idx: Boolean,
+    npwp: String,
+    email: String,
+    telephone: String,
+    address: String,
+    score: Float
+  }
+&nbsp;
+  extend type Mutation {
+    credibility(company: String) : Credibility
+  }
 `;
 &nbsp;
 const resolvers = {
-    Query : {
-        articles: <span class="fstat-no" title="function not covered" >as</span>ync (_, args) =&gt; {
-            const { q } = <span class="cstat-no" title="statement not covered" >args;</span>
-<span class="cstat-no" title="statement not covered" >            try {</span>
-                const { data } = <span class="cstat-no" title="statement not covered" >await axios.get(`https://www.news.developeridn.com/search/?q=${q}`);</span>
-<span class="cstat-no" title="statement not covered" >                console.log(data.data);</span>
-<span class="cstat-no" title="statement not covered" >                if (data.data.length % 2 === 0) {</span>
-<span class="cstat-no" title="statement not covered" >                    return data.data</span>
-                } else {
-<span class="cstat-no" title="statement not covered" >                    data.data.pop();</span>
-<span class="cstat-no" title="statement not covered" >                    return data.data;</span>
-                }
-            } catch (error) {
-<span class="cstat-no" title="statement not covered" >                throw error;</span>
-            }
-        }
+  Mutation: {
+    credibility: <span class="fstat-no" title="function not covered" >as</span>ync (_, args) =&gt; {
+<span class="cstat-no" title="statement not covered" >      try {</span>
+        const { company } = <span class="cstat-no" title="statement not covered" >args;</span>
+        const credible = <span class="cstat-no" title="statement not covered" >checkCredible(company);</span>
+<span class="cstat-no" title="statement not covered" >        return credible;</span>
+      } catch(err) {
+<span class="cstat-no" title="statement not covered" >        return err;</span>
+      }
     }
+  }
 }
 &nbsp;
-module.exports = { typeDefs, resolvers }</pre></td></tr></table></pre>
+module.exports = { typeDefs, resolvers };
+&nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

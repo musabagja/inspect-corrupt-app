@@ -1,6 +1,5 @@
 const { gql } = require('apollo-server')
-const axios = require('axios')
-// const NodeMailer = require('../helpers/nodeMailer')
+const axios = require('axios').default;
 const typeDefs = gql`
     type Articles {
         judul: String
@@ -19,17 +18,14 @@ const resolvers = {
         articles: async (_, args) => {
             const { q } = args;
             try {
-                const response = await axios({
-                    url: `https://www.news.developeridn.com/search/?q=${q}`,
-                    method: "GET",
-                })
-                if (response.data.data.length % 2 === 0) {
-                    return response.data.data;
+                const { data } = await axios.get(`https://www.news.developeridn.com/search/?q=${q}`);
+                console.log(data.data);
+                if (data.data.length % 2 === 0) {
+                    return data.data
                 } else {
-                    response.data.data.pop();
-                    return response.data.data
+                    data.data.pop();
+                    return data.data;
                 }
-                
             } catch (error) {
                 throw error;
             }
