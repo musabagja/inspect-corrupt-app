@@ -100,6 +100,9 @@ export default function TaxAndCredibility() {
     // alert credibility
     <React.Fragment>
       <div className="uk-container tax-credibility">
+        <div className="result-heading uk-text-center uk-align-center">
+          <p className="">Result will be here</p>
+        </div>
         { credibilityResult && !loading ?
           <div className="credibility-alert" uk-alert>
             <a style={{color: 'black', padding: 10, top: 0, width: 100, height: 100}} class="uk-alert-close" uk-close></a>

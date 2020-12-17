@@ -5,7 +5,7 @@ const typeDefs = gql`
   type Report {
     _id: ID
     UserEmail: String
-    case: String
+    case1: String
     entity: String
     province: String
     city: String
@@ -21,7 +21,7 @@ const typeDefs = gql`
   }
 
   input newReport {
-    case: String!
+    case1: String!
     entity: String!
     province: String!
     city: String!

@@ -59,7 +59,6 @@ const resolvers = {
   Mutation: {
     Register: async (_, args) => {
       try {
-        console.log('sampe')
         const { payload } = args;
         const data = { ...payload, role: "User" }
 
@@ -84,7 +83,6 @@ const resolvers = {
           if (!compare(payload.password, user.password)) {
             return new Error({ message: 'Wrong Email/Password' })
           } else {
-            console.log(user)
             const token = jwtSign({
               id: user._id,
               email: user.email,

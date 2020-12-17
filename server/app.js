@@ -32,13 +32,13 @@ const context = async () => {
 }
 
 
-// app.use('/', graphqlHTTP({schema, rootValue: resolvers, context}))
+app.use('/', graphqlHTTP({schema, rootValue: resolvers, context}))
 
-server.listen().then(() => {
-  console.log(`
-    INSPECT Server is running!
-    Listening on port 4000
-  `);
-});
+// server.listen().then(() => {
+//   console.log(`
+//     INSPECT Server is running!
+//     Listening on port 4000
+//   `);
+// });
 
 module.exports = { server, app };
