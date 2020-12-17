@@ -94,14 +94,14 @@ const checkCredible = async (search) => {
   return { score: scoreTotal, name, kpbn, indoInvestments, idx: idxFlag, npwp, email, telephone, address };
 }
 
-const execute = async () => {
-  const kpbn = await checkCredible('abm investama');
-  const score = {
-    score: kpbn
-  }
-  console.log(score)
-}
+// const execute = async () => {
+//   const kpbn = await checkCredible('abm investama');
+//   const score = {
+//     score: kpbn
+//   }
+//   console.log(score)
+// }
 
-execute();
+// execute();
 
 module.exports = checkCredible;

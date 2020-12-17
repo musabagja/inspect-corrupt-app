@@ -25,6 +25,7 @@ const typeDefs = gql`
   input LoginUser {
     email: String
     password: String
+    role: String
   }
   input RegisterUser {
     first_name: String!
@@ -88,7 +89,7 @@ const resolvers = {
               email: user.email,
               last_name: user.last_name
             });
-            return { token, email: user.email };
+            return { token, email: user.email, role: user.role };
           }
         }
       } catch (err) {

@@ -1,10 +1,11 @@
 import React from 'react'
 import { gql, useQuery } from '@apollo/client'
-import Footer from '../../components/Footer'
+import { Link } from 'react-router-dom'
 
 const FETCH_REPORT = gql`
     query FetchReport {
         reports {
+            _id
             UserEmail
             case
             entity
@@ -56,10 +57,13 @@ function AdminReport() {
                     <tbody>
                         {data.reports.map((el, i) => {
                             return (
+                            
                                 <tr>
                                     <td>{i + 1}</td>
                                     <td>{el.UserEmail}</td>
-                                    <td>{el.case}</td>
+                                    <Link to={ "/admin/" + el._id }>
+                                        <td>{el.case}</td>
+                                    </Link>
                                     <td>{el.entity}</td>
                                     <td>{el.province}</td>
                                     <td>{el.city}</td>
@@ -71,9 +75,7 @@ function AdminReport() {
                         })}
                     </tbody>
                 </table>
-
             </div>
-            <Footer/>
         </React.Fragment>
     )
 }

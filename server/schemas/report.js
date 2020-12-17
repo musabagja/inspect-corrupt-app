@@ -58,8 +58,10 @@ const resolvers = {
     },
     report: async (_, args) => {
       try {
+        console.log('sampe')
         const { _id } = args
         const report = await getReportById(_id)
+        console.log(report)
         return report
       } catch (error) {
         return error
