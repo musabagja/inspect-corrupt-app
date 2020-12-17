@@ -2,6 +2,9 @@ import './tax.css';
 import React, { useState } from 'react';
 import { gql, useMutation } from '@apollo/client';
 import ReactLoading from 'react-loading';
+import Tax from '../../assets/tax.png';
+import Credibility from '../../assets/credibility.png';
+import swal from 'sweetalert';
 
 const CREDIBILITY = gql`
   mutation Credibility($company: String) {
@@ -98,7 +101,8 @@ export default function TaxAndCredibility() {
     <React.Fragment>
       <div className="uk-container tax-credibility">
         { credibilityResult && !loading ?
-          <div className="uk-alert-success credibility-alert" uk-alert="true">
+          <div className="credibility-alert" uk-alert>
+            <a style={{color: 'black', padding: 10, top: 0, width: 100, height: 100}} class="uk-alert-close" uk-close></a>
             <ul>
               { credibilityResult.name ? 
                 <li>Company Name: { credibilityResult.name }</li>
@@ -106,19 +110,19 @@ export default function TaxAndCredibility() {
                 ''
               }
               { credibilityResult.kpbn ? 
-                <li>Listed on <a target="_blank" href="https://kpbn.co.id/persh.php?alphabet=a">KPBN</a></li>
+                <li style={{color: '#4cd137'}}>Listed on <a target="_blank" href="https://kpbn.co.id/persh.php?alphabet=a">KPBN</a> <span style={{color: '#4cd137'}} class="uk-margin-medium-left" uk-icon="check"></span></li>
               :
-                <li>Not listed on <a target="_blank" href="https://kpbn.co.id/persh.php?alphabet=a">KPBN</a></li>
+                <li style={{color: '#e74c3c'}}>Not listed on <a target="_blank" href="https://kpbn.co.id/persh.php?alphabet=a">KPBN</a> <span style={{color: '#e74c3c'}} class="uk-margin-medium-left" uk-icon="ban"></span></li>
               }
               { credibilityResult.indoInvestments ? 
-                <li>Listed on <a target="_blank" href="https://kpbn.co.id/persh.php?alphabet=a">Indonesia Investments</a></li>
+                <li style={{color: '#4cd137'}}>Listed on <a target="_blank" href="https://kpbn.co.id/persh.php?alphabet=a">Indonesia Investments</a> <span style={{color: '#4cd137'}} class="uk-margin-medium-left" uk-icon="check"></span></li>
               :
-                <li>Not listed on <a target="_blank" href="https://kpbn.co.id/persh.php?alphabet=a">Indonesia Investments</a></li>
+                <li style={{color: '#e74c3c'}}>Not listed on <a target="_blank" href="https://kpbn.co.id/persh.php?alphabet=a">Indonesia Investments</a> <span style={{color: '#e74c3c'}} class="uk-margin-medium-left" uk-icon="ban"></span></li>
               }
               { credibilityResult.idx ? 
-                <li>Listed on <a target="_blank" href="https://www.idx.co.id/perusahaan-tercatat/profil-perusahaan-tercatat/">IDX</a></li>
+                <li style={{color: '#4cd137'}}>Listed on <a target="_blank" href="https://www.idx.co.id/perusahaan-tercatat/profil-perusahaan-tercatat/">IDX</a> <span style={{color: '#4cd137'}} class="uk-margin-medium-left" uk-icon="check"></span></li>
               :
-                <li>Not listed on <a target="_blank" href="https://www.idx.co.id/perusahaan-tercatat/profil-perusahaan-tercatat/">IDX</a></li>
+                <li style={{color: '#e74c3c'}}>Not listed on <a target="_blank" href="https://www.idx.co.id/perusahaan-tercatat/profil-perusahaan-tercatat/">IDX</a> <span style={{color: '#e74c3c'}} class="uk-margin-medium-left" uk-icon="ban"></span></li>
               }
               <li>NPWP: { credibilityResult.npwp }</li>
               <li>Email Addres: { credibilityResult.email }</li>
@@ -130,43 +134,46 @@ export default function TaxAndCredibility() {
           ''
         }
         { successMessage ? 
-          <div className="uk-alert-success npwp-alert" uk-alert="true">
+          <div className="uk-alert npwp-alert" uk-alert="true">
             {/* <a className="uk-alert-close" uk-close="true"></a> */}
-            <p>{ successMessage }</p>
+            <p style={{color: '#4cd137'}}>{ successMessage }</p>
           </div>
         :
           ''
         }
         {
           errorMessage ?
-            <div className="uk-alert-danger npwp-alert" uk-alert="true">
+            <div className="uk-alert npwp-alert" uk-alert="true">
               {/* <a className="uk-alert-close" uk-close="true"></a> */}
-              <p>{ errorMessage }</p>
+              <p style={{color: '#e84118'}}>{ errorMessage }</p>
             </div>
           :
             ''
         }
         {loading && 
           <div className="loading">
-            <ReactLoading type="spinningBubbles" color="#e74c3c"/>
+            <ReactLoading type="spinningBubbles" color="#4cd137"/>
           </div>
         }
         <div className="uk-child-width-expand@s uk-text-center main-content-tax" uk-grid="true">
-          <div>
+          <div className="uk-card uk-card-hover uk-card-body">
               <h3>Tax Validator</h3>
             <form onSubmit={onSubmitNpwp}>
               <fieldset className="uk-fieldset">
                 <div className="uk-margin">
                     <input name="npwp" value={npwp} onChange={onChangeNpwp} className="uk-input" type="text" placeholder="Insert your tax id"/>
                 </div>
-                <button type="submit" className="uk-button uk-button-default btn-next">SUBMIT</button>
+                <button type="submit" className="uk-button btn-submit">SUBMIT</button>
               </fieldset>
             </form>
             <article class="uk-article" style={{marginTop: 50}}>
-              <p class="uk-article-meta" style={{fontSize: 18, fontWeight: 700}}>is to check your tax id is valid or not</p>
+              <p class="uk-article-meta" style={{fontSize: 18, fontWeight: 700}}>Taxpayer Identification Number, is a number that must be owned for every individual, or business entity with income. Where the provisions of the taxpayer have been regulated in law number 16, 2009. Now, all the complete information regarding the data and the amount that must be paid by the taxpayer, you can do it online. In fact, how to check your Tax ID number online, now it can be done very easily and quickly</p>
             </article>
+            <div className="icon">
+              <img src={Tax} width="50"/>
+            </div>
           </div>
-          <div>
+          <div className="uk-card uk-card-hover uk-card-body">
             <h3>Credibility</h3>
             <form onSubmit={onSubmitCredibility}>
               <fieldset className="uk-fieldset">
@@ -174,11 +181,14 @@ export default function TaxAndCredibility() {
                     <input className="uk-input" name="company" value={company} onChange={onChange} type="text" placeholder="Insert company name"/>
                 </div>
               </fieldset>
-              <button type="submit" className="uk-button uk-button-default btn-next">SUBMIT</button>
+              <button type="submit" className="uk-button btn-submit">SUBMIT</button>
             </form>
             <article class="uk-article" style={{marginTop: 50}}>
-              <p class="uk-article-meta" style={{fontSize: 18, fontWeight: 700}}>to check the credibility of your company</p>
+              <p class="uk-article-meta" style={{fontSize: 18, fontWeight: 700}}>Not only that you can check taxpayer identification number, you can also check any company's credibility by putting their company name as we identify their credibility</p>
             </article>
+            <div className="icon">
+              <img src={Credibility} width="50"/>
+            </div>
           </div>
         </div>
       </div>
