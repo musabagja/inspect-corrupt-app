@@ -49,6 +49,10 @@ export default () => {
                   </Link>
                 </div>
               </div>
+              <div className="uk-margin-large-top">
+                <h3>WANT TO GET INVOLVED, BUT DON’T KNOW HOW?</h3>
+                <p>Fighting corruption starts with you</p>
+              </div>
               <div className="news">
                 <h3>News</h3>
                 {loading &&
